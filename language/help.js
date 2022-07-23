@@ -48,45 +48,17 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix}hapusvote
   
   *DOWNLOADER MENU*
-  *≻* ${prefix}tiktoknowm 
-  *≻* ${prefix}tiktokwm 
-  *≻* ${prefix}tiktokmp3 
-  *≻* ${prefix}instagram 
-  *≻* ${prefix}twitter 
-  *≻* ${prefix}twittermp3 
-  *≻* ${prefix}facebook 
   *≻* ${prefix}pinterestdl 
   *≻* ${prefix}ytmp3 
   *≻* ${prefix}ytmp4 
-  *≻* ${prefix}getmusic 
-  *≻* ${prefix}getvideo 
-  *≻* ${prefix}umma 
-  *≻* ${prefix}joox 
-  *≻* ${prefix}soundcloud 
   
   *SEARCH MENU*
   *≻* ${prefix}play 
   *≻* ${prefix}yts 
-  *≻* ${prefix}google 
-  *≻* ${prefix}gimage 
   *≻* ${prefix}pinterest 
   *≻* ${prefix}wikimedia 
   *≻* ${prefix}ytsearch 
   *≻* ${prefix}ringtone 
-  *≻* ${prefix}stalk [option] 
-  *≻* ${prefix}webtoons 
-  *≻* ${prefix}drakor 
-  *≻* ${prefix}animesearch 
-  *≻* ${prefix}character 
-  *≻* ${prefix}manga 
-  *≻* ${prefix}playstore 
-  *≻* ${prefix}gsmarena 
-  *≻* ${prefix}jadwalbioskop 
-  *≻* ${prefix}nowplayingbioskop 
-  *≻* ${prefix}aminio 
-  *≻* ${prefix}wattpad 
-  *≻* ${prefix}webtoons 
-  *≻* ${prefix}drakor 
   
   *TELE STICK MENU*
   *≻* ${prefix}gurastick
@@ -190,16 +162,7 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix}retrolol
   
   *EPHOTO MENU*
-  *≻* ${prefix}ffcover
-  *≻* ${prefix}crossfire
-  *≻* ${prefix}galaxy
-  *≻* ${prefix}glass
-  *≻* ${prefix}neon
-  *≻* ${prefix}beach
-  *≻* ${prefix}blackpink
-  *≻* ${prefix}igcertificate
-  *≻* ${prefix}ytcertificate
-  
+  --==Coming Soon==--
   *GAME & FUN MENU*
   *≻* ${prefix}simih
   *≻* ${prefix}bagaimanakah
@@ -360,10 +323,8 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix}owner
   *≻* ${prefix}menu
   *≻* ${prefix}delete
-  *≻* ${prefix}infochat
   *≻* ${prefix}quoted
   *≻* ${prefix}listpc
-  *≻* ${prefix}listgc
   *≻* ${prefix}listonline
   
   *DATABASE MENU*
