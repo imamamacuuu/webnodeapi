@@ -109,8 +109,8 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix}husbu
   *≻* ${prefix}neko
   *≻* ${prefix}shinobu
-  *≻* ${prefix}waifus 
-  *≻* ${prefix}nekos 
+  *≻* ${prefix}hentai
+  *≻* ${prefix}hnekos 
   *≻* ${prefix}trap 
   *≻* ${prefix}blowjob 
   
