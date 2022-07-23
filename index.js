@@ -1264,12 +1264,12 @@ break
                     await sleep(1500)
                     let btn = [{
                                 urlButton: {
-                                    displayText: 'YouTube Creator',
+                                    displayText: 'YouTube',
                                     url: `${youtube}`
                                 }
                             }, {
                                 urlButton: {
-                                    displayText: `Rest Api's`,
+                                    displayText: `Instagram`,
                                     url: `${myweb}`
                                 }
                             }, {
