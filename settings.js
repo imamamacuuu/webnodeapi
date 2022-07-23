@@ -41,7 +41,7 @@ global.email = 'fucekyuu809@gmail.com'
 global.region = 'indonesia'
 
 //—————「 Set Wm 」—————//
-global.packname = '© FanaSlebwe' //ubah jadi nama bot mu, note tanda ' gausah di hapus!
+global.packname = '© FanaSlebew' //ubah jadi nama bot mu, note tanda ' gausah di hapus!
 global.author = 'Fana' //ubah jadi nama mu, note tanda ' gausah di hapus!
 
 //—————「 Set Nama Session 」—————//
@@ -73,7 +73,7 @@ global.flasmurf = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutp
 
 //—————「 Set Prefix 」—————//
 //gausah di apa² in!
-global.prefa = ['','!','.','🐦','🐤','🗿']
+global.prefa = [',']
 
 //—————「 Set Simbol 」—————//
 //terserah mai ubah atau nggak, note : tanda ' gausah di hapus!
