@@ -3145,6 +3145,33 @@ case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite'
 					chika.sendImage(m.chat, data.url, mess.success, m)
 					})
 					break
+			case 'blowjob': case 'trap': 
+				     if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
+		            db.data.users[m.sender].limit -= 1 // -1 limit
+					reply(mess.wait)
+					axios.get(`https://api.waifu.pics/nsfw/${command}`)
+					.then(({data}) => {
+					chika.sendImage(m.chat, data.url, mess.success, m)
+					})
+					break
+			case 'hentai':
+				     if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
+		            db.data.users[m.sender].limit -= 1 // -1 limit
+					reply(mess.wait)
+					axios.get(`https://api.waifu.pics/nsfw/waifu`)
+					.then(({data}) => {
+					chika.sendImage(m.chat, data.url, mess.success, m)
+					})
+					break
+			case 'hneko':
+				     if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
+		            db.data.users[m.sender].limit -= 1 // -1 limit
+					reply(mess.wait)
+					axios.get(`https://api.waifu.pics/nsfw/neko`)
+					.then(({data}) => {
+					chika.sendImage(m.chat, data.url, mess.success, m)
+					})
+					break
 case 'playstore': {
             if (!q) return reply(`Example : ${prefix + command} clash of clans`)
             reply(mess.wait)
