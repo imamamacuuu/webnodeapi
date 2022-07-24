@@ -1745,14 +1745,14 @@ break
                 let buttonMessage = {
 			image: { url: result },
 			caption: `*-------「 PINTEREST SEARCH 」-------*
-		🤠 *Query* : ${text}
+		🤠 *Query* : ${querry}
                 🔗 *Media Url* : ${result}`,
                     footer: ownername,
                     buttons: buttons,
                     headerType: 4
                 }
                 chika.sendMessage(m.chat, buttonMessage, { quoted: m })
-		})
+		
 	}
 	    break
 		case ',wallpaper': {
