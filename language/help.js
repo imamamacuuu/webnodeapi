@@ -162,7 +162,9 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix}retrolol
   
   *EPHOTO MENU*
-  --==Coming Soon==--
+  
+  ---=== COMING SOON ===---
+  
   *GAME & FUN MENU*
   *≻* ${prefix}simih
   *≻* ${prefix}bagaimanakah
@@ -227,60 +229,8 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix}shio
 
   *CERPEN MENU*
-  *≻* ${prefix}cerpen anak
-  *≻* ${prefix}cerpen bahasa daerah
-  *≻* ${prefix}cerpen bahasa inggris
-  *≻* ${prefix}cerpen bahasa jawa
-  *≻* ${prefix}cerpen bahasa sunda
-  *≻* ${prefix}cerpen budaya
-  *≻* ${prefix}cerpen cinta
-  *≻* ${prefix}cerpen cinta islami
-  *≻* ${prefix}cerpen cinta pertama
-  *≻* ${prefix}cerpen cinta romantis
-  *≻* ${prefix}cerpen cinta sedih
-  *≻* ${prefix}cerpen cinta segitiga
-  *≻* ${prefix}cerpen cinta sejati
-  *≻* ${prefix}cerpen galau
-  *≻* ${prefix}cerpen gokil
-  *≻* ${prefix}cerpen inspiratif
-  *≻* ${prefix}cerpen jepang
-  *≻* ${prefix}cerpen kehidupan
-  *≻* ${prefix}cerpen keluarga
-  *≻* ${prefix}cerpen kisah nyata
-  *≻* ${prefix}cerpen korea
-  *≻* ${prefix}cerpen kristen
-  *≻* ${prefix}cerpen liburan
-  *≻* ${prefix}cerpen lingkungan
-  *≻* ${prefix}cerpen lucu
-  *≻* ${prefix}cerpen malaysia
-  *≻* ${prefix}cerpen mengharukan
-  *≻* ${prefix}cerpen misteri
-  *≻* ${prefix}cerpen motivasi
-  *≻* ${prefix}cerpen nasihat
-  *≻* ${prefix}cerpen nasionalisme
-  *≻* ${prefix}cerpen olahraga
-  *≻* ${prefix}cerpen patah hati
-  *≻* ${prefix}cerpen penantian
-  *≻* ${prefix}cerpen pendidikan
-  *≻* ${prefix}cerpen pengalaman pribadi
-  *≻* ${prefix}cerpen pengorbanan
-  *≻* ${prefix}cerpen penyesalan
-  *≻* ${prefix}cerpen perjuangan
-  *≻* ${prefix}cerpen perpisahan
-  *≻* ${prefix}cerpen persahabatan
-  *≻* ${prefix}cerpen petualangan
-  *≻* ${prefix}cerpen ramadhan
-  *≻* ${prefix}cerpen remaja
-  *≻* ${prefix}cerpen renungan
-  *≻* ${prefix}cerpen rindu
-  *≻* ${prefix}cerpen rohani
-  *≻* ${prefix}cerpen romantis
-  *≻* ${prefix}cerpen sastra
-  *≻* ${prefix}cerpen sedih
-  *≻* ${prefix}cerpen sejarah
-  *≻* ${prefix}cerpen slice of life
-  *≻* ${prefix}cerpen terjemahan
-  *≻* ${prefix}cerpen thriller
+ 
+ ---=== COMING SOON ===---
   
   *CONVERT MENU*
   *≻* ${prefix}toimage
