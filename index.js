@@ -1733,16 +1733,29 @@ break
                 chika.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `⭔ Title : ${media.title}\n⭔ File Size : ${media.filesizeF}\n⭔ Url : ${urls[text - 1]}\n⭔ Ext : MP3\n⭔ Resolusi : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-            case ',pinterest': {
+		case ',pinterest': {
                 if (!q) return reply(`Example : ${prefix + command} Cewe cantik`)
                 reply(mess.wait)
 		        let { pinterest } = require('./lib/scraper')
                 anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-                chika.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })
-            }
-            break
-			case ',wallpaper': {
+	        let buttons = [
+                    {buttonId: `,pinterest ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
+                ]
+                let buttonMessage = {
+			image: { url: result },
+			caption: `*-------「 PINTEREST SEARCH 」-------*
+		🤠 *Query* : ${text}
+                🔗 *Media Url* : ${result}`,
+                    footer: ownername,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                chika.sendMessage(m.chat, buttonMessage, { quoted: m })
+		})
+	}
+	    break
+		case ',wallpaper': {
                if (!q) return reply(`Example : ${prefix + command} Cewe cantik`)
                 reply(mess.wait)
 		        let { pinterest } = require('./lib/scraper')
