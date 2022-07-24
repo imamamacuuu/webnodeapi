@@ -51,7 +51,8 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},pinterestdl 
   *≻* ${prefix},ytmp3 
   *≻* ${prefix},ytmp4 
-  
+  *≻* ${prefix},getmusic
+  *≻* ${prefix},getvideo
   *SEARCH MENU*
   *≻* ${prefix},play 
   *≻* ${prefix},yts 
@@ -59,6 +60,7 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},wikimedia 
   *≻* ${prefix},ytsearch 
   *≻* ${prefix},ringtone 
+  *≻* ${prefix},wallpaper
   
   *TELE STICK MENU*
   *≻* ${prefix},gurastick
