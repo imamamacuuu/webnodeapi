@@ -280,6 +280,7 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},quoted
   *≻* ${prefix},listpc
   *≻* ${prefix},listonline
+  *≻* ${prefix},afk
   
   *DATABASE MENU*
   *≻* ${prefix},setcmd
