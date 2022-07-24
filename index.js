@@ -3142,7 +3142,7 @@ case ',cry':case ',kill':case ',hug':case ',pat':case ',lick':case ',kiss':case 
 						chika.sendImageAsSticker(m.chat, data.url, m, { packname: global.packname, author: global.author })
 					})
 					break
-		case ',waifu': case ',loli': case `neko` : case `shinobu` : case `megumin` :
+		case ',waifu': case ',loli': case ',neko' : case ',shinobu' : case ',megumin' :
 				     if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		            db.data.users[m.sender].limit -= 1 // -1 limit
 					reply(mess.wait)
