@@ -48,7 +48,7 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},hapusvote
   
   *DOWNLOADER MENU*
-  *≻* ${prefix},pinterestdl 
+  *≻* ${prefix},pinterest 
   *≻* ${prefix},ytmp3 
   *≻* ${prefix},ytmp4 
   *≻* ${prefix},getmusic
@@ -58,12 +58,14 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},play 
   *≻* ${prefix},yts 
   *≻* ${prefix},pinterest 
+  *≻* ${prefix},pin
   *≻* ${prefix},wikimedia 
   *≻* ${prefix},ytsearch 
   *≻* ${prefix},ringtone 
   *≻* ${prefix},wallpaper
   *≻* ${prefix},google
   *≻* ${prefix},gimage
+  *≻* ${prefix},gimg
   
   *TELE STICK MENU*
   *≻* ${prefix},gurastick
