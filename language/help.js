@@ -115,7 +115,7 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},neko
   *≻* ${prefix},shinobu
   *≻* ${prefix},hentai
-  *≻* ${prefix},hnekos 
+  *≻* ${prefix},hneko
   *≻* ${prefix},trap 
   *≻* ${prefix},blowjob 
   
