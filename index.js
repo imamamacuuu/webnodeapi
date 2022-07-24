@@ -1743,21 +1743,12 @@ break
             }
             break
 			case ',wallpaper': {
-                if (!text) throw 'Masukkan Query Title'
-		let { wallpaper } = require('./lib/scraper')
-                anu = await wallpaper(text)
+               if (!q) return reply(`Example : ${prefix + command} Cewe cantik`)
+                reply(mess.wait)
+		        let { pinterest } = require('./lib/scraper')
+                anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-		let buttons = [
-                    {buttonId: `wallpaper ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: result.image[0] },
-                    caption: `⭔ Title : ${result.title}\n⭔ Category : ${result.type}\n⭔ Detail : ${result.source}\n⭔ Media Url : ${result.image[2] || result.image[1] || result.image[0]}`,
-                    footer: hisoka.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
+                chika.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })
             }
             break
 case ',webtonsearch': case ',webtoon':
