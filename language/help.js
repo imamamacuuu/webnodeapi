@@ -173,14 +173,14 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},bisakah
   *≻* ${prefix},rate
   *≻* ${prefix},wangy
-  *≻* ${prefix},cekganteng / *≻* ${prefix},gantengcek
-  *≻* ${prefix},cekcantik / *≻* ${prefix},cantikcek
-  *≻* ${prefix},ceksange / *≻* ${prefix},sangecek
-  *≻* ${prefix},cekgay / *≻* ${prefix},gaycek
-  *≻* ${prefix},ceklesbi / *≻* ${prefix},lesbicek
-  *≻* ${prefix},cekcina / *≻* ${prefix},cinacek
-  *≻* ${prefix},ceknolep / *≻* ${prefix},nolepcek
-  *≻* ${prefix},cekwibu / *≻* ${prefix},wibucek
+  *≻* ${prefix},cekganteng */* *≻* ${prefix},gantengcek
+  *≻* ${prefix},cekcantik  */* *≻* ${prefix},cantikcek
+  *≻* ${prefix},ceksange   */* *≻* ${prefix},sangecek
+  *≻* ${prefix},cekgay     */* *≻* ${prefix},gaycek
+  *≻* ${prefix},ceklesbi   */* *≻* ${prefix},lesbicek
+  *≻* ${prefix},cekcina    */* *≻* ${prefix},cinacek
+  *≻* ${prefix},ceknolep   */* *≻* ${prefix},nolepcek
+  *≻* ${prefix},cekwibu    */* *≻* ${prefix},wibucek
   *≻* ${prefix},halah
   *≻* ${prefix},hilih
   *≻* ${prefix},huluh
