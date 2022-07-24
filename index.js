@@ -3338,7 +3338,7 @@ typemenu = 'catalog'
 reply("Sucses Mengganti Menu "+q)
 }
 break
-case ',command': {
+case 'command': {
 await chika.sendListMenu(from, `Selamat ${salam} kak ${pushname}` , lang.list(pushname) , 'MENU', {quoted: fkontak})
 }
 break
@@ -3354,7 +3354,7 @@ await chika.sendListMenu(from, `Selamat ${salam} kak ${pushname}` , lang.list(pu
 }
 }
 break
-case ',allmenu': {
+case 'allmenu': {
 if(typemenu == 'image'){
 var riych = await getBuffer(picak+'All Menu')
 await chika.send5ButImg(from, `` + '' + lang.allmenu(prefix, pushname, botname, time, salam), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}}] )
@@ -3367,95 +3367,95 @@ await chika.sendCatalog(from, 'ALL MENU', lang.allmenu(prefix, pushname, botname
 }
 }
 break
-case ',groupmenu':
+case 'groupmenu':
 var riych = await getBuffer(picak+'Group Menu')
 await chika.send5ButImg(from, `` + '' + lang.groupmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',downloadermenu':
+case 'downloadermenu':
 var riych = await getBuffer(picak+'Downloader Menu')
 await chika.send5ButImg(from, `` + '' + lang.downloadermenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',searchmenu':
+case 'searchmenu':
 var riych = await getBuffer(picak+'Search Menu')
 await chika.send5ButImg(from, `` + '' + lang.searchmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',telestickmenu':
+case 'telestickmenu':
 var riych = await getBuffer(picak+'Telegram Sticker Menu')
 await chika.send5ButImg(from, `` + '' + lang.telestickmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',randommenu':
+case 'randommenu':
 var riych = await getBuffer(picak+'Random Menu')
 await chika.send5ButImg(from, `` + '' + lang.randommenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',randomanimemenu':
+case 'randomanimemenu':
 var riych = await getBuffer(picak+'Random Anime Menu')
 await chika.send5ButImg(from, `` + '' + lang.randomanimemenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',searchmenu':
+case 'searchmenu':
 var riych = await getBuffer(picak+'Search Menu')
 await chika.send5ButImg(from, `` + '' + lang.searchmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',textpromenu':
+case 'textpromenu':
 var riych = await getBuffer(picak+'Textpro Menu')
 await chika.send5ButImg(from, `` + '' + lang.textpromenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',photooxymenu':
+case 'photooxymenu':
 var riych = await getBuffer(picak+'Photo Oxy Menu')
 await chika.send5ButImg(from, `` + '' + lang.photooxymenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',ephotomenu':
+case 'ephotomenu':
 var riych = await getBuffer(picak+'Ephoto Menu')
 await chika.send5ButImg(from, `` + '' + lang.ephotomenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',funmenu':
+case 'funmenu':
 var riych = await getBuffer(picak+'Fun Menu')
 await chika.send5ButImg(from, `` + '' + lang.funmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',primbonmenu':
+case 'primbonmenu':
 var riych = await getBuffer(picak+'Primbon Menu')
 await chika.send5ButImg(from, `` + '' + lang.primbonmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',cerpenmenu':
+case 'cerpenmenu':
 var riych = await getBuffer(picak+'Cerpen Menu')
 await chika.send5ButImg(from, `` + '' + lang.cerpenmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',convertmenu':
+case 'convertmenu':
 var riych = await getBuffer(picak+'Converter Menu')
 await chika.send5ButImg(from, `` + '' + lang.convertmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',informationmenu':
+case 'informationmenu':
 var riych = await getBuffer(picak+'Information Menu')
 await chika.send5ButImg(from, `` + '' + lang.informationmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',mainmenu':
+case 'mainmenu':
 var riych = await getBuffer(picak+'Main Menu')
 await chika.send5ButImg(from, `` + '' + lang.mainmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',databasemenu':
+case 'databasemenu':
 var riych = await getBuffer(picak+'Database Menu')
 await chika.send5ButImg(from, `` + '' + lang.groupmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',anonymousmenu':
+case 'anonymousmenu':
 var riych = await getBuffer(picak+'Anonymous Menu')
 await chika.send5ButImg(from, `` + '' + lang.anonymousmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',islamicmenu':
+case 'islamicmenu':
 var riych = await getBuffer(picak+'Islamic Menu')
 await chika.send5ButImg(from, `` + '' + lang.islamicmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',voicechargermenu':
+case 'voicechargermenu':
 var riych = await getBuffer(picak+'Voice Charger Menu')
 await chika.send5ButImg(from, `` + '' + lang.voicechargermenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',ownermenu':
+case 'ownermenu':
 var riych = await getBuffer(picak+'Owner Menu')
 await chika.send5ButImg(from, `` + '' + lang.ownermenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',donasi': case ',donate':
+case 'donasi': case ',donate':
 var riych = await getBuffer(picak+'Donasi')
 await chika.send5ButImg(from, `` + '' + lang.donasi(ownernomer), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case ',thanksto': case ',tqto':
+case 'thanksto': case ',tqto':
 var riych = await getBuffer(picak+'Contributors')
 await chika.send5ButImg(from, `` + '' + lang.thanksto(), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
