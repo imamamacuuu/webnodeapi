@@ -1642,7 +1642,7 @@ break
         n = result
         images = n[Math.floor(Math.random() * n.length)].url
         let buttons = [
-                    {buttonId: `gimage ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
+                    {buttonId: `,gimage ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: images },
@@ -1870,7 +1870,7 @@ case ',webtonsearch': case ',webtoon':
             case ',coffe': case ',kopi': {
             reply(mess.wait)
             let buttons = [
-                    {buttonId: `coffe`, buttonText: {displayText: 'Next Image'}, type: 1}
+                    {buttonId: `,coffe`, buttonText: {displayText: 'Next Image'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: 'https://coffee.alexflipnote.dev/random' },
@@ -1888,7 +1888,7 @@ case ',webtonsearch': case ',webtoon':
                 anu = await wikimedia(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
                 let buttons = [
-                    {buttonId: `wikimedia ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
+                    {buttonId: `,wikimedia ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: result.image },
