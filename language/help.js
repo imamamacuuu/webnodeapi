@@ -121,11 +121,11 @@ return`  _Selamat ${salam} kak ${pushname}_
   
   *TEXT PRO MENU*
 
-  ---===COMING SOON===---
+  ---=== COMING SOON ===---
   
   *PHOTO OXY MENU*
  
-  ---===COMING SOON===---
+  ---=== COMING SOON ===---
   
   *EPHOTO MENU*
   
