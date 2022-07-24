@@ -189,7 +189,6 @@ return`  _Selamat ${salam} kak ${pushname}_
   
   *CONVERT MENU*
   *≻* ${prefix},toimage
-  *≻* ${prefix},removebg
   *≻* ${prefix},sticker
   *≻* ${prefix},emojimix
   *≻* ${prefix},tovideo
