@@ -120,51 +120,12 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},blowjob 
   
   *TEXT PRO MENU*
-  *≻* ${prefix},3dchristmas
-  *≻* ${prefix},3ddeepsea
-  *≻* ${prefix},americanflag
-  *≻* ${prefix},3dscifi
-  *≻* ${prefix},3drainbow
-  *≻* ${prefix},3dwaterpipe
-  *≻* ${prefix},halloweenskeleton
-  *≻* ${prefix},sketch
-  *≻* ${prefix},bluecircuit
-  *≻* ${prefix},space
-  *≻* ${prefix},metallic
-  *≻* ${prefix},fiction
-  *≻* ${prefix},greenhorror
-  *≻* ${prefix},transformer
-  *≻* ${prefix},berry
-  *≻* ${prefix},thunder
-  *≻* ${prefix},magma
-  *≻* ${prefix},3dcrackedstone
-  *≻* ${prefix},3dneonlight
-  *≻* ${prefix},impressiveglitch
-  *≻* ${prefix},naturalleaves
-  *≻* ${prefix},fireworksparkle
-  *≻* ${prefix},matrix
-  *≻* ${prefix},dropwater
-  *≻* ${prefix},harrypotter
-  *≻* ${prefix},foggywindow
-  *≻* ${prefix},neondevils
-  *≻* ${prefix},christmasholiday
-  *≻* ${prefix},3dgradient
-  *≻* ${prefix},blackpink
-  *≻* ${prefix},gluetext
+
+  ---===COMING SOON===---
   
   *PHOTO OXY MENU*
-  *≻* ${prefix},shadow
-  *≻* ${prefix},romantic
-  *≻* ${prefix},smoke
-  *≻* ${prefix},burnpapper
-  *≻* ${prefix},naruto
-  *≻* ${prefix},lovemsg
-  *≻* ${prefix},grassmsg
-  *≻* ${prefix},lovetext
-  *≻* ${prefix},coffecup
-  *≻* ${prefix},butterfly
-  *≻* ${prefix},harrypotter
-  *≻* ${prefix},retrolol
+ 
+  ---===COMING SOON===---
   
   *EPHOTO MENU*
   
@@ -234,7 +195,7 @@ return`  _Selamat ${salam} kak ${pushname}_
 
   *CERPEN MENU*
  
- ---=== COMING SOON ===---
+  ---=== COMING SOON ===---
   
   *CONVERT MENU*
   *≻* ${prefix},toimage
