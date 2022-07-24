@@ -1634,7 +1634,7 @@ break
                 })
                 }
                 break
-        case ',gimage': {
+		case ',gimage': case ',gimg': {
         if (!q) return reply(`Example : ${prefix + command} kaori cicak`)
         reply(mess.wait)
         let gis = require('g-i-s')
@@ -1646,7 +1646,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: images },
-                    caption: `*-------「 GIMAGE SEARCH 」-------*
+                    caption: `*「 GIMAGE SEARCH 」*
 🤠 *Query* : ${text}
 🔗 *Media Url* : ${images}`,
                     footer: ownername,
@@ -1733,7 +1733,7 @@ break
                 chika.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `⭔ Title : ${media.title}\n⭔ File Size : ${media.filesizeF}\n⭔ Url : ${urls[text - 1]}\n⭔ Ext : MP3\n⭔ Resolusi : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-		case ',pinterest': {
+		case ',pinterest': case ',pin': {
                 if (!q) return reply(`Example : ${prefix + command} Cewe cantik`)
                 reply(mess.wait)
 		        let { pinterest } = require('./lib/scraper')
@@ -1744,7 +1744,7 @@ break
                 ]
                 let buttonMessage = {
 			image: { url: result },
-			caption: `*-------「 PINTEREST SEARCH 」-------*
+			caption: `*「 PINTEREST SEARCH 」*
 🤠 *Query* : ${text}
 🔗 *Media Url* : ${result}`,
                     footer: ownername,
@@ -1756,14 +1756,27 @@ break
 	}
 	    break
 		case ',wallpaper': {
-               if (!q) return reply(`Example : ${prefix + command} Cewe cantik`)
+                if (!q) return reply(`Example : ${prefix + command} Cewe cantik`)
                 reply(mess.wait)
 		        let { pinterest } = require('./lib/scraper')
                 anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-                chika.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })
-            }
-            break
+	        let buttons = [
+                    {buttonId: `,wallpaper ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
+                ]
+                let buttonMessage = {
+			image: { url: result },
+			caption: `*「 WALLPAPER 」*
+🤠 *Query* : ${text}
+🔗 *Media Url* : ${result}`,
+                    footer: ownername,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                chika.sendMessage(m.chat, buttonMessage, { quoted: m })
+		
+	}
+	    break
 case ',webtonsearch': case ',webtoon':
                 if (!text) return reply('Yang mau di cari apa?')
                 await reply(mess.wait)
@@ -1774,7 +1787,7 @@ case ',webtonsearch': case ',webtoon':
                         txt += `*👍🏻 Like :* ${i.like}\n`
                         txt += `*🤴🏻 Creator :* ${i.creator}\n`
                         txt += `*🎥 Genre :* ${i.genre}\n`
-                        txt += `*📚 Url :* ${i.url}\n ----------------------------------------------------------\n`
+                        txt += `*📚 Url :* ${i.url}\n --\n`
                     }
                     await reply(txt)
                 })
@@ -1791,7 +1804,7 @@ case ',webtonsearch': case ',webtoon':
                         txt += `*📫 Title :* ${i.judul}\n`
                         txt += `*📆 Years :* ${i.years}\n`
                         txt += `*🎥 Genre :* ${i.genre}\n`
-                        txt += `*📚 Url :* ${i.url}\n-----------------------------------------------------\n`
+                        txt += `*📚 Url :* ${i.url}\n----\n`
                     }
                     await sendFileFromUrl(from,data[0].thumbnail,txt,m)
                 })
@@ -1803,10 +1816,10 @@ case ',webtonsearch': case ',webtoon':
                 if (!text) return reply('Yang mau di cari apa?')
                 await reply(mess.wait)
                 chika.Anime(q).then(async data => {
-                    let txt = `*-------「 ANIME-SEARCH 」-------*\n\n`
+                    let txt = `*「 ANIME-SEARCH 」*\n\n`
                     for (let i of data) {
                         txt += `*📫 Title :* ${i.judul}\n`
-                        txt += `*📚 Url :* ${i.link}\n-----------------------------------------------------\n`
+                        txt += `*📚 Url :* ${i.link}\n----\n`
                     }
                     let gam = await getBuffer(data[0].thumbnail.replace('https://www.anime-planet.com',''))
                     var but = [
@@ -1831,7 +1844,7 @@ case ',webtonsearch': case ',webtoon':
                     let txt = `*---「 CHARACTER-SEARCH 」---*\n\n`
                     for (let i of data) {
                         txt += `*📫 Character :* ${i.character}\n`
-                        txt += `*📚 Url :* ${i.link}\n-----------------------------------------------------\n`
+                        txt += `*📚 Url :* ${i.link}\n----\n`
                     }
                     let gam = await getBuffer(data[0].thumbnail.replace('https://www.anime-planet.com',''))
                     var but = [
@@ -1855,7 +1868,7 @@ case ',webtonsearch': case ',webtoon':
                     let txt = `*------「 MANGA-SEARCH 」------*\n\n`
                     for (let i of data) {
                          txt += `*📫 Title :* ${i.judul}\n`
-                         txt += `*📚 Url :* ${i.link}\n-----------------------------------------------------\n`
+                         txt += `*📚 Url :* ${i.link}\n----\n`
                     }
                     let gam = await getBuffer(data[0].thumbnail.replace('https://www.anime-planet.com',''))
                     var but = [
