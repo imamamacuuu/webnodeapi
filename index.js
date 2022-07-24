@@ -477,14 +477,14 @@ Selama ${clockString(new Date - user.afkTime)}
             user.afkReason = ''
         }
         switch(command) {
-	    case 'afk': {
+	    case ',afk': {
                 let user = global.db.data.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
                 reply(`${m.pushName} Telah Afk${text ? ': ' + text : ''}`)
             }
             break	
-        case 'ttc': case 'ttt': case 'tictactoe': {
+        case ',ttc': case ',ttt': case ',tictactoe': {
         	 if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		   db.data.users[m.sender].limit -= 1 // -1 limit
             let TicTacToe = require("./lib/tictactoe")
@@ -536,7 +536,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             }
             }
             break
-            case 'delttc': case 'delttt': {
+            case ',delttc': case ',delttt': {
             this.game = this.game ? this.game : {}
             try {
             if (this.game) {
@@ -550,7 +550,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             }
             }
             break
-            case 'suitpvp': case 'suit': {
+            case ',suitpvp': case ',suit': {
              if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		    db.data.users[m.sender].limit -= 1 // -1 limit
             this.suit = this.suit ? this.suit : {}
@@ -580,7 +580,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             }
             break
-            case 'chat': {
+            case ',chat': {
                 if (!isCreator) return reply(mess.owner)
                 if (!q) throw 'Option : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete'
                 if (args[0] === 'mute') {
@@ -600,7 +600,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 }
             }
             break
-	    case 'family100': {
+	    case ',family100': {
 		 if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		db.data.users[m.sender].limit -= 1 // -1 limit
                 if ('family100'+m.chat in _family100) {
@@ -619,13 +619,13 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 }
             }
             break
-            case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
+            case ',halah': case ',hilih': case ',huluh': case ',heleh': case ',holoh':
             if (!q) return reply(`Kirim/reply text dengan caption ${prefix + command}`)
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
-            case 'tebak': {
+            case ',tebak': {
             	 if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		        db.data.users[m.sender].limit -= 1 // -1 limit
                 if (!q) return reply(`Example : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik\n6.lontong`)
@@ -713,7 +713,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 }
             }
             break
-            case 'kuismath': case 'math': {
+            case ',kuismath': case ',math': {
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                 let { genMath, modes } = require('./lib/math')
                 if (!q) return reply(`Mode: ${Object.keys(modes).join(' | ')}\nContoh penggunaan: ${prefix}math medium`)
@@ -729,7 +729,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 }
             }
             break
-            case 'jodohku': {
+            case ',jodohku': {
             if (!m.isGroup) return reply(mess.group)
             let member = participants.map(u => u.id)
             let me = m.sender
@@ -744,7 +744,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await chika.sendButtonText(m.chat, buttons, jawab, ownername, m, {mentions: ments})
             }
             break
-            case 'jadian': {
+            case ',jadian': {
             if (!m.isGroup) return reply(mess.group)
             let member = participants.map(u => u.id)
             let orang = member[Math.floor(Math.random() * member.length)]
@@ -759,28 +759,28 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await chika.sendButtonText(m.chat, buttons, jawab, ownername, m, {mentions: menst})
             }
             break
-            case 'apakah':
+            case ',apakah':
 				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
 					const apa = ['Iya', 'Tidak', 'Bisa Jadi', 'Betul']
 					const kah = apa[Math.floor(Math.random() * apa.length)]
 chika.sendMessage(from, { text: `Pertanyaan : Apakah ${q}\nJawaban : ${kah}` }, { quoted: m })
 
 					break
-case 'bisakah':
+case ',bisakah':
 				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
 					const bisa = ['Bisa','Gak Bisa','Gak Bisa Ajg Aaokawpk','TENTU PASTI KAMU BISA!!!!']
 					const ga = bisa[Math.floor(Math.random() * bisa.length)]
 chika.sendMessage(from, { text: `Pertanyaan : ${q}\nJawaban : ${ga}` }, { quoted: m })
 
 					break
-case 'bagaimanakah':
+case ',bagaimanakah':
 				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
 					const gimana = ['Gak Gimana2', 'Sulit Itu Bro', 'Maaf Bot Tidak Bisa Menjawab', 'Coba Deh Cari Di Gugel','astaghfirallah Beneran???','Pusing ah','Owhh Begitu:(','Yang Sabar Ya Bos:(','Gimana yeee']
 					const ya = gimana[Math.floor(Math.random() * gimana.length)]
 chika.sendMessage(from, { text: `Pertanyaan : ${q}\nJawaban : ${ya}` }, { quoted: m })
 
 					break
-case 'rate':
+case ',rate':
  
 				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} Gambar aku`)
 					const ra = ['5', '10', '15' ,'20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
@@ -788,8 +788,8 @@ case 'rate':
 chika.sendMessage(from, { text: `Rate : ${q}\nJawaban : *${te}%*` }, { quoted: m })
 
 					break
-case 'gantengcek':
-  case 'cekganteng':
+case ',gantengcek':
+  case ',cekganteng':
    
 				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} Riych`)
 					const gan = ['5', '10', '15' ,'20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
@@ -797,8 +797,8 @@ case 'gantengcek':
 chika.sendMessage(from, { text: `Nama : ${q}\nJawaban : *${teng}%*` }, { quoted: m })
 
 					break
-case 'cantikcek':
-  case 'cekcantik':
+case ',cantikcek':
+  case ',cekcantik':
    
 				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} Riych`)
 					const can = ['5', '10', '15' ,'20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
@@ -806,42 +806,42 @@ case 'cantikcek':
 chika.sendMessage(from, { text: `Nama : ${q}\nJawaban : *${tik}%*` }, { quoted: m })
 
 					break
-case 'sangecek':
-  case 'ceksange':
-    case 'gaycek':
-      case 'cekgay':
-        case 'lesbicek':
-          case 'ceklesbi':
+case ',sangecek':
+  case ',ceksange':
+    case ',gaycek':
+      case ',cekgay':
+        case ',lesbicek':
+          case ',ceklesbi':
 				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} ${pushname}`)
 					const sangeh = ['5', '10', '15','20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
 					const sange = sangeh[Math.floor(Math.random() * sangeh.length)]
 chika.sendMessage(from, { text: `Nama : ${q}\nJawaban : *${sange}%*` }, { quoted: m })
 
 					break
-case 'kapankah':
+case ',kapankah':
 				if (!q) return reply(`Penggunaan ${command} Pertanyaan\n\nContoh : ${command} Saya Mati`)
 					const kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Hari Lagi','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi','35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','Besok','Lusa',`Abis Command Ini Juga Lu ${q}`]
 					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
 chika.sendMessage(from, { text: `Pertanyaan : ${q}\nJawaban : *${kapankah}*` }, { quoted: m })
 					break
-case 'wangy':
+case ',wangy':
               if (!q) return reply (`Contoh : .wangy Riy`)
               qq = q.toUpperCase()
               awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaaah baunya rambut ${qq} wangyy aku mau nyiumin aroma wangynya ${qq} AAAAAAAAH ~ Rambutnya.... aaah rambutnya juga pengen aku elus-elus ~~ AAAAAH ${qq} keluar pertama kali di anime juga manis ❤️ ❤️ ❤️ banget AAAAAAAAH ${qq} AAAAA LUCCUUUUUUUUUUUUUUU............ ${qq} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️apa ? ${qq} itu gak nyata ? Cuma HALU katamu ? nggak, ngak ngak ngak ngak NGAAAAAAAAK GUA GAK PERCAYA ITU DIA NYATA NGAAAAAAAAAAAAAAAAAK PEDULI BANGSAAAAAT !! GUA GAK PEDULI SAMA KENYATAAN POKOKNYA GAK PEDULI. ❤️ ❤️ ❤️ ${qq} gw ... ${qq} di laptop ngeliatin gw, ${qq} .. kamu percaya sama aku ? aaaaaaaaaaah syukur ${q} aku gak mau merelakan ${qq} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH GUA MASIH PUNYA ${qq} SENDIRI PUN NGGAK SAMA AAAAAAAAAAAAAAH`
              reply(awikwok)
               break
-case 'cekmati':
+case ',cekmati':
               if (!q) return reply(`Invalid!\n\nYg mau di cek siapa kontol?`)
               predea = await axios.get(`https://api.agify.io/?name=${q}`)
               reply(`Nama : ${predea.data.name}\n*Mati Pada Umur :* ${predea.data.age} Tahun.\n\n_Cepet Cepet Tobat Bro Soalnya Mati ga ada yang tau_`)
               break
-case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
+case ',halah': case ',hilih': case ',huluh': case ',heleh': case ',holoh':
             if (!m.quoted && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
-            case 'react': {
+            case ',react': {
                 if (!isCreator) return reply(mess.owner)
                 reactionMessage = {
                     react: {
@@ -852,7 +852,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 chika.sendMessage(m.chat, reactionMessage)
             }
             break  
-            case 'join': {
+            case ',join': {
                 if (!isCreator) return reply(mess.owner)
                 if (!text) throw 'Masukkan Link Group!'
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
@@ -861,12 +861,12 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 await chika.groupAcceptInvite(result).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
-            case 'leave': {
+            case ',leave': {
                 if (!isCreator) return reply(mess.owner)
                 await chika.groupLeave(m.chat).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
-            case 'setexif': {
+            case ',setexif': {
                if (!isCreator) return reply(mess.owner)
                if (!q) return reply(`Example : ${prefix + command} packname|author`)
           global.packname = text.split("|")[0]
@@ -874,7 +874,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
           reply(`Exif berhasil diubah menjadi\n\n⭔ Packname : ${global.packname}\n⭔ Author : ${global.author}`)
             }
             break
-	case 'kick': {
+	case ',kick': {
 		if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -882,7 +882,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
 		await chika.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case 'add': {
+	case ',add': {
 		if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -890,7 +890,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
 		await chika.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case 'promote': {
+	case ',promote': {
 		if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -898,7 +898,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
 		await chika.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case 'demote': {
+	case ',demote': {
 		if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -906,19 +906,19 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
 		await chika.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-        case 'block': {
+        case ',block': {
 		if (!isCreator) return reply(mess.owner)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await chika.updateBlockStatus(users, 'block').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-        case 'unblock': {
+        case ',unblock': {
 		if (!isCreator) return reply(mess.owner)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await chika.updateBlockStatus(users, 'unblock').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	    case 'setname': case 'setsubject': {
+	    case ',setname': case ',setsubject': {
                 if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -926,7 +926,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 await chika.groupUpdateSubject(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
             break
-          case 'setdesc': case 'setdesk': {
+          case ',setdesc': case ',setdesk': {
                 if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -934,7 +934,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 await chika.groupUpdateDescription(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
             break
-          case 'setppbot': {
+          case ',setppbot': {
                 if (!isCreator) return reply(mess.owner)
                 if (!quoted) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
                 if (!/image/.test(mime)) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
@@ -944,7 +944,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 reply(mess.success)
                 }
                 break
-           case 'setppgroup': case 'setppgrup': case 'setppgc': {
+           case ',setppgroup': case ',setppgrup': case ',setppgc': {
                 if (!m.isGroup) return reply(mess.group)
                 if (!isAdmins) return reply(mess.admin)
                 if (!quoted) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
@@ -955,7 +955,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 reply(mess.success)
                 }
                 break
-            case 'tagall': {
+            case ',tagall': {
                 if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -968,20 +968,20 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 chika.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
                 }
                 break
-                case 'hidetag': {
+                case ',hidetag': {
             if (!m.isGroup) return reply(mess.group)
             if (!isBotAdmins) return reply(mess.botAdmin)
             if (!isAdmins) return reply(mess.admin)
             chika.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
-			case 'summon': {
+			case ',summon': {
             if (!m.isGroup) return reply(mess.group)
             if (!isCreator) return reply(mess.owner)
             chika.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
-	    case 'style': case 'styletext': {
+	    case ',style': case ',styletext': {
 	        if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		db.data.users[m.sender].limit -= 1 // -1 limit
 		let { styletext } = require('./lib/scraper')
@@ -994,7 +994,7 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 reply(teks)
 	    }
 	    break
-               case 'vote': {
+               case ',vote': {
             if (!m.isGroup) return reply(mess.group)
             if (m.chat in vote) return reply(`_Masih ada vote di chat ini!_\n\n*${prefix}hapusvote* - untuk menghapus vote`)
             if (!q) return reply(`Masukkan Alasan Melakukan Vote, Example: *${prefix + command} Owner Ganteng*`)
@@ -1036,7 +1036,7 @@ let buttonsVote = [
             chika.sendMessage(m.chat, buttonMessageVote)
 	    }
             break
-               case 'upvote': {
+               case ',upvote': {
             if (!m.isGroup) return reply(mess.group)
             if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai vote`
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
@@ -1078,7 +1078,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
             chika.sendMessage(m.chat, buttonMessageUpvote)
 	    }
              break
-                case 'devote': {
+                case ',devote': {
             if (!m.isGroup) return reply(mess.group)
             if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai vote`
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
@@ -1121,7 +1121,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 	}
             break
                  
-case 'cekvote':
+case ',cekvote':
 if (!m.isGroup) return reply(mess.group)
 if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai vote`
 teks_vote = `*「 VOTE 」*
@@ -1149,14 +1149,14 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 `
 chika.sendTextWithMentions(m.chat, teks_vote, m)
 break
-		case 'deletevote': case'delvote': case 'hapusvote': {
+		case ',deletevote': case'delvote': case ',hapusvote': {
             if (!m.isGroup) return reply(mess.group)
             if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai vote`
             delete vote[m.chat]
             reply('Berhasil Menghapus Sesi Vote Di Grup Ini')
 	    }
             break
-               case 'group': case 'grup': {
+               case ',group': case ',grup': {
                 if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -1174,7 +1174,7 @@ break
              }
             }
             break
-            case 'editinfo': {
+            case ',editinfo': {
                 if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -1192,7 +1192,7 @@ break
             }
             }
             break
-            case 'antilink': {
+            case ',antilink': {
                 if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -1213,7 +1213,7 @@ break
                 }
              }
              break
-             case 'mute': {
+             case ',mute': {
                 if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -1234,13 +1234,13 @@ break
                 }
              }
              break
-            case 'linkgroup': case 'linkgc': {
+            case ',linkgroup': case ',linkgc': {
                 if (!m.isGroup) return reply(mess.group)
                 let response = await chika.groupInviteCode(m.chat)
                 chika.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink Group : ${groupMetadata.subject}`, m, { detectLink: true })
             }
             break
-            case 'ephemeral': {
+            case ',ephemeral': {
                 if (!m.isGroup) return reply(mess.group)
                 if (!isBotAdmins) return reply(mess.botAdmin)
                 if (!isAdmins) return reply(mess.admin)
@@ -1252,14 +1252,14 @@ break
                 }
             }
             break
-            case 'delete': case 'del': {
+            case ',delete': case ',del': {
                 if (!m.quoted) throw false
                 let { chat, fromMe, id, isBaileys } = m.quoted
                 if (!isBaileys) throw 'Pesan tersebut bukan dikirim oleh bot!'
                 chika.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
-            case 'bcgc': case 'bcgroup': {
+            case ',bcgc': case ',bcgroup': {
                 if (!isCreator) return reply(mess.owner)
                 if (!q) return reply(`Text mana?\n\nExample : ${prefix + command} Riy ganteng`)
                 let getGroups = await chika.groupFetchAllParticipating()
@@ -1295,7 +1295,7 @@ break
                 reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
             }
             break
-            case 'bc': case 'broadcast': case 'bcall': {
+            case ',bc': case ',broadcast': case ',bcall': {
                 if (!isCreator) return reply(mess.owner)
                 if (!q) return reply(`Text mana?\n\nExample : ${prefix + command} fatih-san`)
                 let anu = await store.chats.all().map(v => v.id)
@@ -1329,7 +1329,7 @@ break
 		reply('Sukses Broadcast')
             }
             break
-            case 'infochat': {
+            case ',infochat': {
                 if (!m.quoted) reply('Reply Pesan')
                 let msg = await m.getQuotedObj()
                 if (!m.quoted.isBaileys) throw 'Pesan tersebut bukan dikirim oleh bot!'
@@ -1344,14 +1344,14 @@ break
                 chika.sendTextWithMentions(m.chat, teks, m)
             }
             break
-            case 'q': case 'quoted': {
+            case ',q': case ',quoted': {
 		if (!m.quoted) return reply('Reply Pesannya!!')
 		let wokwol = await chika.serializeM(await m.getQuotedObj())
 		if (!wokwol.quoted) return reply('Pesan Yang anda reply tidak mengandung reply')
 		await wokwol.quoted.copyNForward(m.chat, true)
             }
 	    break
-            case 'listpc': {
+            case ',listpc': {
                  let anu = await store.chats.all().filter(v => v.id.endsWith('.net')).map(v => v.id)
                  let teks = `⬣ *LIST PERSONAL CHAT*\n\nTotal Chat : ${anu.length} Chat\n\n`
                  for (let i of anu) {
@@ -1361,7 +1361,7 @@ break
                  chika.sendTextWithMentions(m.chat, teks, m)
              }
              break
-                case 'listgc': {
+                case ',listgc': {
                  let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
                  let teks = `⬣ *LIST GROUP CHAT*\n\nTotal Group : ${anu.length} Group\n\n`
                  for (let i of anu) {
@@ -1371,13 +1371,13 @@ break
                  chika.sendTextWithMentions(m.chat, teks, m)
              }
              break
-             case 'listonline': case 'liston': {
+             case ',listonline': case ',liston': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
                     chika.sendText(m.chat, 'List Online:\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
-            case 'sticker': case 's': case 'stickergif': case 'sgif': {
+            case ',sticker': case ',s': case ',stickergif': case ',sgif': {
             if (!quoted) throw `Balas Video/Image Dengan Caption ${prefix + command}`
             reply(mess.wait)
                     if (/image/.test(mime)) {
@@ -1394,7 +1394,7 @@ break
                 }
             }
             break
-case 'smeme': case 'stickermeme': case 'stickmeme': {
+case ',smeme': case ',stickermeme': case ',stickmeme': {
 let { TelegraPh } = require('./lib/uploader')
 if (!text) return reply(`Kirim/Reply Foto Dengan Caption ${prefix + command} *teks*`)
 if (text.includes('|')) return reply(`Kirim/Reply Foto Dengan Caption ${prefix + command} *teks*`)
@@ -1407,8 +1407,8 @@ memek = await chika.sendImageAsSticker(m.chat, meme, m, { packname: global.packn
 await fs.unlinkSync(memek)
 }
 break
-case 'gura':
-case 'gurastick':{
+case ',gura':
+case ',gurastick':{
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/gura')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
@@ -1416,8 +1416,8 @@ encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: globa
 await fs.unlinkSync(encmedia)
 }
 break
-case 'doge':
-case 'dogestick':{
+case ',doge':
+case ',dogestick':{
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/anjing')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
@@ -1425,8 +1425,8 @@ encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: globa
 await fs.unlinkSync(encmedia)
 }
 break
-case 'bucinstick':
-case 'bucinp' :{
+case ',bucinstick':
+case ',bucinp' :{
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/bucin')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
@@ -1434,8 +1434,8 @@ encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: globa
 await fs.unlinkSync(encmedia)
 }
 break
-case 'patrik':
-case 'patrick': {
+case ',patrik':
+case ',patrick': {
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/patrik')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
@@ -1443,7 +1443,7 @@ encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: globa
 await fs.unlinkSync(encmedia)
 }
 break
-            case 'ebinary': {
+            case ',ebinary': {
             if (!m.quoted.text && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
             let { eBinary } = require('./lib/binary')
             let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
@@ -1451,7 +1451,7 @@ break
             reply(eb)
         }
         break
-            case 'dbinary': {
+            case ',dbinary': {
             if (!m.quoted.text && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
             let { dBinary } = require('./lib/binary')
             let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
@@ -1459,7 +1459,7 @@ break
             reply(db)
         }
         break
-            case 'emojimix': {
+            case ',emojimix': {
 		let [emoji1, emoji2] = text.split`+`
 		if (!emoji1) throw `Example : ${prefix + command} 😅+🤔`
 		if (!emoji2) throw `Example : ${prefix + command} 😅+🤔`
@@ -1470,7 +1470,7 @@ break
 		}
 	    }
 	    break
-	       case 'smeme': case 'stickmeme': case 'stikmeme': case 'stickermeme': case 'stikermeme': {
+	       case ',smeme': case ',stickmeme': case ',stikmeme': case ',stickermeme': case ',stikermeme': {
 	        let respond = `Kirim/reply image/sticker dengan caption ${prefix + command} text1|text2`
 	        if (!/image/.test(mime)) throw respond
             if (!text) throw respond
@@ -1485,13 +1485,13 @@ break
 	        await fs.unlinkSync(Riy)
             }
 	       break     
-	        case 'simih': case 'simisimi': {
+	        case ',simih': case ',simisimi': {
             if (!q) return reply(`Example : ${prefix + command} text`)
             hm = await fetchJson(api('zenz', '/api/simisimi', { text : text }, 'apikey'))
             m.reply(hm.result.message)
             }
             break
-            case 'toimage': case 'toimg': {
+            case ',toimage': case ',toimg': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
                 reply(mess.wait)
@@ -1506,7 +1506,7 @@ break
                 })
             }
             break
-	        case 'tomp4': case 'tovideo': {
+	        case ',tomp4': case ',tovideo': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
                 reply(mess.wait)
@@ -1517,7 +1517,7 @@ break
                 await fs.unlinkSync(media)
             }
             break
-            case 'toaud': case 'toaudio': {
+            case ',toaud': case ',toaudio': {
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `Kirim/Reply Video/Audio Yang Ingin DijaNamaCowon Audio Dengan Caption ${prefix + command}`
             if (!quoted) throw `Kirim/Reply Video/Audio Yang Ingin DijaNamaCowon Audio Dengan Caption ${prefix + command}`
             reply(mess.wait)
@@ -1527,7 +1527,7 @@ break
             chika.sendMessage(m.chat, {audio: audio, mimetype: 'audio/mpeg'}, { quoted : m })
             }
             break
-            case 'tomp3': {
+            case ',tomp3': {
             if (/document/.test(mime)) throw `Kirim/Reply Video/Audio Yang Ingin DijaNamaCowon MP3 Dengan Caption ${prefix + command}`
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `Kirim/Reply Video/Audio Yang Ingin DijaNamaCowon MP3 Dengan Caption ${prefix + command}`
             if (!quoted) throw `Kirim/Reply Video/Audio Yang Ingin DijaNamaCowon MP3 Dengan Caption ${prefix + command}`
@@ -1538,7 +1538,7 @@ break
             chika.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${ownername}.mp3`}, { quoted : m })
             }
             break
-            case 'tovn': case 'toptt': {
+            case ',tovn': case ',toptt': {
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `Reply Video/Audio Yang Ingin DijaNamaCowon VN Dengan Caption ${prefix + command}`
             if (!quoted) throw `Reply Video/Audio Yang Ingin DijaNamaCowon VN Dengan Caption ${prefix + command}`
             reply(mess.wait)
@@ -1548,7 +1548,7 @@ break
             chika.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
             }
             break
-            case 'togif': {
+            case ',togif': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
                 reply(mess.wait)
@@ -1559,7 +1559,7 @@ break
                 await fs.unlinkSync(media)
             }
             break
-	        case 'tourl': {
+	        case ',tourl': {
                 reply(mess.wait)
 		        let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await chika.downloadAndSaveMediaMessage(quoted)
@@ -1573,7 +1573,7 @@ break
                 await fs.unlinkSync(media)
             }
             break
-            case 'imagenobg': case 'removebg': case 'remove-bg': {
+            case ',imagenobg': case ',removebg': case ',remove-bg': {
 	    if (!quoted) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
 	    if (!/image/.test(mime)) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
 	    if (/webp/.test(mime)) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
@@ -1598,7 +1598,7 @@ break
 	    })
 	    }
 	    break
-	    case 'yts': case 'ytsearch': {
+	    case ',yts': case ',ytsearch': {
                 if (!q) return reply(`Example : ${prefix + command} story wa anime`)
                 reply(mess.wait)
                 let yts = require("yt-search")
@@ -1611,7 +1611,7 @@ break
                 chika.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
             break
-        case 'google': {
+        case ',google': {
                 if (!q) return reply(`Example : ${prefix + command} fatih arridho`)
                 reply(mess.wait)
                 let google = require('google-it')
@@ -1626,7 +1626,7 @@ break
                 })
                 }
                 break
-        case 'gimage': {
+        case ',gimage': {
         if (!q) return reply(`Example : ${prefix + command} kaori cicak`)
         reply(mess.wait)
         let gis = require('g-i-s')
@@ -1649,7 +1649,7 @@ break
         })
         }
         break
-	    case 'play': case 'ytplay': {
+	    case ',play': case ',ytplay': {
                 if (!q) return reply(`Example : ${prefix + command} story wa anime`)
                 reply(mess.wait)
                 let yts = require("yt-search")
@@ -1679,7 +1679,7 @@ break
                 chika.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-	    case 'ytmp3': case 'ytaudio': {
+	    case ',ytmp3': case ',ytaudio': {
                 let { yta } = require('./lib/y2mate')
                 if (!q) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
                 let quality = args[1] ? args[1] : '128kbps'
@@ -1689,7 +1689,7 @@ break
                 chika.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
-            case 'ytmp4': case 'ytvideo': {
+            case ',ytmp4': case ',ytvideo': {
                 let { ytv } = require('./lib/y2mate')
                 if (!q) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`)
                 let quality = args[1] ? args[1] : '360p'
@@ -1698,7 +1698,7 @@ break
                 chika.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `⭔ Title : ${media.title}\n⭔ File Size : ${media.filesizeF}\n⭔ Url : ${isUrl(text)}\n⭔ Ext : MP3\n⭔ Resolusi : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-	    case 'getmusic': {
+	    case ',getmusic': {
                 let { yta } = require('./lib/y2mate')
                 if (!q) return reply(`Example : ${prefix + command} 1`)
                 if (!m.quoted) return reply('Reply Pesan')
@@ -1712,7 +1712,7 @@ break
                 chika.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
-            case 'getvideo': {
+            case ',getvideo': {
                 let { ytv } = require('./lib/y2mate')
                 if (!q) return reply(`Example : ${prefix + command} 1`)
                 if (!m.quoted) return reply('Reply Pesan')
@@ -1725,7 +1725,7 @@ break
                 chika.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `⭔ Title : ${media.title}\n⭔ File Size : ${media.filesizeF}\n⭔ Url : ${urls[text - 1]}\n⭔ Ext : MP3\n⭔ Resolusi : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-            case 'pinterest': {
+            case ',pinterest': {
                 if (!q) return reply(`Example : ${prefix + command} Cewe cantik`)
                 reply(mess.wait)
 		        let { pinterest } = require('./lib/scraper')
@@ -1734,7 +1734,7 @@ break
                 chika.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })
             }
             break
-case 'webtonsearch': case 'webtoon':
+case ',webtonsearch': case ',webtoon':
                 if (!text) return reply('Yang mau di cari apa?')
                 await reply(mess.wait)
                 chika.Webtoons(q).then(async data => {
@@ -1752,7 +1752,7 @@ case 'webtonsearch': case 'webtoon':
                     reply(mess.error)
                 })
             break
-            case 'drakor':
+            case ',drakor':
                 if (!text) return reply('Yang mau di cari apa?')
                 await reply(mess.wait)
                 chika.Drakor(`${text}`).then(async data => {
@@ -1769,7 +1769,7 @@ case 'webtonsearch': case 'webtoon':
                     reply(mess.error)
                 })
             break
-            case 'anime':{
+            case ',anime':{
                 if (!text) return reply('Yang mau di cari apa?')
                 await reply(mess.wait)
                 chika.Anime(q).then(async data => {
@@ -1794,7 +1794,7 @@ case 'webtonsearch': case 'webtoon':
                 })
                 }
             break
-            case 'character': case 'karakter':
+            case ',character': case ',karakter':
                 if (!text) return reply('Yang mau di cari apa?')
                 await reply(mess.wait)
                 chika.Character(q).then(async data => {
@@ -1818,7 +1818,7 @@ case 'webtonsearch': case 'webtoon':
                     reply(mess.error)
                 })
             break
-            case 'manga':
+            case ',manga':
                 if (!text) return reply('Yang mau di cari apa?')
                 await reply(mess.wait)
                 chika.Manga(`${text}`).then(async data => {
@@ -1842,7 +1842,7 @@ case 'webtonsearch': case 'webtoon':
                     reply(mess.error)
                 })
             break
-	    case 'couple': {
+	    case ',couple': {
                 reply(mess.wait)
                 let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
                 let random = anu[Math.floor(Math.random() * anu.length)]
@@ -1850,7 +1850,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break
-            case 'coffe': case 'kopi': {
+            case ',coffe': case ',kopi': {
             reply(mess.wait)
             let buttons = [
                     {buttonId: `coffe`, buttonText: {displayText: 'Next Image'}, type: 1}
@@ -1865,7 +1865,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'wikimedia': {
+            case ',wikimedia': {
                 if (!text) throw 'Masukkan Query Title'
 		let { wikimedia } = require('./lib/scraper')
                 anu = await wikimedia(text)
@@ -1883,7 +1883,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'quotesanime': case 'quoteanime': {
+            case ',quotesanime': case ',quoteanime': {
 		let { quotesAnime } = require('./lib/scraper')
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
@@ -1899,7 +1899,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case '3dchristmas': case '3ddeepsea': case 'americanflag': case '3dscifi': case '3drainbow': case '3dwaterpipe': case 'halloweenskeleton': case 'sketch': case 'bluecircuit': case 'space': case 'metallic': case 'fiction': case 'greenhorror': case 'transformer': case 'berry': case 'thunder': case 'magma': case '3dcrackedstone': case '3dneonlight': case 'impressiveglitch': case 'naturalleaves': case 'fireworksparkle': case 'matrix': case 'dropwater':  case 'harrypotter': case 'foggywindow': case 'neondevils': case 'christmasholiday': case '3dgradient': case 'blackpink': case 'gluetext': {
+            case ',3dchristmas': case ',3ddeepsea': case ',americanflag': case ',3dscifi': case ',3drainbow': case ',3dwaterpipe': case ',halloweenskeleton': case ',sketch': case ',bluecircuit': case ',space': case ',metallic': case ',fiction': case ',greenhorror': case ',transformer': case ',berry': case ',thunder': case ',magma': case ',3dcrackedstone': case ',3dneonlight': case ',impressiveglitch': case ',naturalleaves': case ',fireworksparkle': case ',matrix': case ',dropwater':  case ',harrypotter': case ',foggywindow': case ',neondevils': case ',christmasholiday': case ',3dgradient': case ',blackpink': case ',gluetext': {
                  if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		db.data.users[m.sender].limit -= 1 // -1 limit
                 if (!q) return reply(`Example ${prefix + command} ${pushname}`)
@@ -1907,7 +1907,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendMessage(m.chat, { image: { url: api('zenz', '/textpro/' + command, { text: text }, 'apikey') }, caption: `Text Pro ${command}` }, { quoted: m})
 	    }
             break
-	    case 'shadow': case 'romantic': case 'smoke': case 'burnpapper': case 'naruto': case 'lovemsg': case 'grassmsg': case 'lovetext': case 'coffecup': case 'butterfly': case 'harrypotter': case 'retrolol': {
+	    case ',shadow': case ',romantic': case ',smoke': case ',burnpapper': case ',naruto': case ',lovemsg': case ',grassmsg': case ',lovetext': case ',coffecup': case ',butterfly': case ',harrypotter': case ',retrolol': {
                  if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		db.data.users[m.sender].limit -= 1 // -1 limit
                 if (!q) return reply(`Example ${prefix + command} ${pushname}`)
@@ -1915,7 +1915,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendMessage(m.chat, { image: { url: api('zenz', '/photooxy/' + command, { text: text }, 'apikey') }, caption: `Photo Oxy ${command}` }, { quoted: m })
             }
             break
-            case 'ffcover': case 'crossfire': case 'galaxy': case 'glass': case 'neon': case 'beach': case 'blackpink': case 'igcertificate': case 'ytcertificate': {
+            case ',ffcover': case ',crossfire': case ',galaxy': case ',glass': case ',neon': case ',beach': case ',blackpink': case ',igcertificate': case ',ytcertificate': {
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		db.data.users[m.sender].limit -= 1 // -1 limit
                 if (!q) return reply(`Example ${prefix + command} ${pushname}`)
@@ -1923,21 +1923,21 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendMessage(m.chat, { image: { url: api('zenz', '/ephoto/' + command, { text: text }, 'apikey') }, caption: `Ephoto ${command}` }, { quoted: m })
             }
             break
-	    case 'nomerhoki': case 'nomorhoki': {
+	    case ',nomerhoki': case ',nomorhoki': {
                 if (!Number(text)) reply(`Example : ${prefix + command} 6288292024190`)
                 let anu = await primbon.nomer_hoki(Number(text))
                 if (anu.status == false) return reply(anu.message)
                 chika.sendText(m.chat, `⭔ *Nomor HP :* ${anu.message.nomer_hp}\n⭔ *Angka Shuzi :* ${anu.message.angka_shuzi}\n⭔ *Energi Positif :*\n- Kekayaan : ${anu.message.energi_positif.kekayaan}\n- Kesehatan : ${anu.message.energi_positif.kesehatan}\n- Cinta : ${anu.message.energi_positif.cinta}\n- Kestabilan : ${anu.message.energi_positif.kestabilan}\n- Persentase : ${anu.message.energi_positif.persentase}\n⭔ *Energi Negatif :*\n- Perselisihan : ${anu.message.energi_negatif.perselisihan}\n- Kehilangan : ${anu.message.energi_negatif.kehilangan}\n- Malapetaka : ${anu.message.energi_negatif.malapetaka}\n- Kehancuran : ${anu.message.energi_negatif.kehancuran}\n- Persentase : ${anu.message.energi_negatif.persentase}`, m)
             }
             break
-            case 'artimimpi': case 'tafsirmimpi': {
+            case ',artimimpi': case ',tafsirmimpi': {
                 if (!q) return reply(`Example : ${prefix + command} belanja`)
                 let anu = await primbon.tafsir_mimpi(text)
                 if (anu.status == false) return reply(anu.message)
                 chika.sendText(m.chat, `⭔ *Mimpi :* ${anu.message.mimpi}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Solusi :* ${anu.message.solusi}`, m)
             }
             break
-            case 'ramalanjodoh': case 'ramaljodoh': {
+            case ',ramalanjodoh': case ',ramaljodoh': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo, 20, 11, 2004, NamaCewe, 16, 11, 2004`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -1945,7 +1945,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'ramalanjodohbali': case 'ramaljodohbali': {
+            case ',ramalanjodohbali': case ',ramaljodohbali': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo, 20, 11, 2004, NamaCewe, 16, 11, 2004`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh_bali(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -1953,7 +1953,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'suamiistri': {
+            case ',suamiistri': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo, 20, 11, 2004, NamaCewe, 16, 11, 2004`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.suami_istri(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -1961,7 +1961,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Nama Suami :* ${anu.message.suami.nama}\n⭔ *Lahir Suami :* ${anu.message.suami.tgl_lahir}\n⭔ *Nama Istri :* ${anu.message.istri.nama}\n⭔ *Lahir Istri :* ${anu.message.istri.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'ramalancinta': case 'ramalcinta': {
+            case ',ramalancinta': case ',ramalcinta': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo, 20, 11, 2004, NamaCewe, 16, 11, 2004`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_cinta(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -1969,14 +1969,14 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Sisi Positif :* ${anu.message.sisi_positif}\n⭔ *Sisi Negatif :* ${anu.message.sisi_negatif}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'artinama': {
+            case ',artinama': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo Ardianta`)
                 let anu = await primbon.arti_nama(text)
                 if (anu.status == false) return reply(anu.message)
                 chika.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'kecocokannama': case 'cocoknama': {
+            case ',kecocokannama': case ',cocoknama': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo, 20, 11, 2004`)
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.kecocokan_nama(nama, tgl, bln, thn)
@@ -1984,7 +1984,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Life Path :* ${anu.message.life_path}\n⭔ *Destiny :* ${anu.message.destiny}\n⭔ *Destiny Desire :* ${anu.message.destiny_desire}\n⭔ *Personality :* ${anu.message.personality}\n⭔ *Persentase :* ${anu.message.persentase_kecocokan}`, m)
             }
             break
-            case 'kecocokanpasangan': case 'cocokpasangan': case 'pasangan': {
+            case ',kecocokanpasangan': case ',cocokpasangan': case ',pasangan': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo|NamaCewe`)
                 let [nama1, nama2] = text.split`|`
                 let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2)
@@ -1992,7 +1992,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendImage(m.chat,  anu.message.gambar, `⭔ *Nama Anda :* ${anu.message.nama_anda}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan}\n⭔ *Sisi Positif :* ${anu.message.sisi_positif}\n⭔ *Sisi Negatif :* ${anu.message.sisi_negatif}`, m)
             }
             break
-            case 'jadianpernikahan': case 'jadiannikah': {
+            case ',jadianpernikahan': case ',jadiannikah': {
                 if (!q) return reply(`Example : ${prefix + command} 6, 12, 2020`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.tanggal_jadian_pernikahan(tgl, bln, thn)
@@ -2000,7 +2000,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Tanggal Pernikahan :* ${anu.message.tanggal}\n⭔ *karakteristik :* ${anu.message.karakteristik}`, m)
             }
             break
-            case 'sifatusaha': {
+            case ',sifatusaha': {
                 if (!q) return reply(`Example : ${prefix+ command} 28, 12, 2021`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
@@ -2008,7 +2008,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Usaha :* ${anu.message.usaha}`, m)
             }
             break
-            case 'rejeki': case 'rezeki': {
+            case ',rejeki': case ',rezeki': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rejeki_hoki_weton(tgl, bln, thn)
@@ -2016,7 +2016,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Rezeki :* ${anu.message.rejeki}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'pekerjaan': case 'kerja': {
+            case ',pekerjaan': case ',kerja': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.pekerjaan_weton_lahir(tgl, bln, thn)
@@ -2024,7 +2024,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Pekerjaan :* ${anu.message.pekerjaan}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'ramalannasib': case 'ramalnasib': case 'nasib': {
+            case ',ramalannasib': case ',ramalnasib': case ',nasib': {
                 if (!q) return reply(`Example : 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.ramalan_nasib(tgl, bln, thn)
@@ -2032,7 +2032,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Analisa :* ${anu.message.analisa}\n⭔ *Angka Akar :* ${anu.message.angka_akar}\n⭔ *Sifat :* ${anu.message.sifat}\n⭔ *Elemen :* ${anu.message.elemen}\n⭔ *Angka Keberuntungan :* ${anu.message.angka_keberuntungan}`, m)
             }
             break
-            case 'potensipenyakit': case 'penyakit': {
+            case ',potensipenyakit': case ',penyakit': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
@@ -2040,7 +2040,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Analisa :* ${anu.message.analisa}\n⭔ *Sektor :* ${anu.message.sektor}\n⭔ *Elemen :* ${anu.message.elemen}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'artitarot': case 'tarot': {
+            case ',artitarot': case ',tarot': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.arti_kartu_tarot(tgl, bln, thn)
@@ -2048,7 +2048,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendImage(m.chat, anu.message.image, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Simbol Tarot :* ${anu.message.simbol_tarot}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'fengshui': {
+            case ',fengshui': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo, 1, 2005\n\nNote : ${prefix + command} Nama, gender, tahun lahir\nGender : 1 untuk laki-laki & 2 untuk perempuan`)
                 let [nama, gender, tahun] = text.split`,`
                 let anu = await primbon.perhitungan_feng_shui(nama, gender, tahun)
@@ -2056,7 +2056,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tahun_lahir}\n⭔ *Gender :* ${anu.message.jenis_kelamin}\n⭔ *Angka Kua :* ${anu.message.angka_kua}\n⭔ *Kelompok :* ${anu.message.kelompok}\n⭔ *Karakter :* ${anu.message.karakter}\n⭔ *Sektor Baik :* ${anu.message.sektor_baik}\n⭔ *Sektor Buruk :* ${anu.message.sektor_buruk}`, m)
             }
             break
-            case 'haribaik': {
+            case ',haribaik': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.petung_hari_baik(tgl, bln, thn)
@@ -2064,7 +2064,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Kala Tinantang :* ${anu.message.kala_tinantang}\n⭔ *Info :* ${anu.message.info}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'harisangar': case 'taliwangke': {
+            case ',harisangar': case ',taliwangke': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.hari_sangar_taliwangke(tgl, bln, thn)
@@ -2072,7 +2072,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Info :* ${anu.message.info}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'harinaas': case 'harisial': {
+            case ',harinaas': case ',harisial': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_hari_naas(tgl, bln, thn)
@@ -2080,7 +2080,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hari Naas :* ${anu.message.hari_naas}\n⭔ *Info :* ${anu.message.catatan}\n⭔ *Catatan :* ${anu.message.info}`, m)
             }
             break
-            case 'nagahari': case 'harinaga': {
+            case ',nagahari': case ',harinaga': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rahasia_naga_hari(tgl, bln, thn)
@@ -2088,7 +2088,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Arah Naga Hari :* ${anu.message.arah_naga_hari}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'arahrejeki': case 'arahrezeki': {
+            case ',arahrejeki': case ',arahrezeki': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_arah_rejeki(tgl, bln, thn)
@@ -2096,7 +2096,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Arah Rezeki :* ${anu.message.arah_rejeki}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'peruntungan': {
+            case ',peruntungan': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo, 20, 11, 2004, 2022\n\nNote : ${prefix + command} Nama, tanggal lahir, bulan lahir, tahun lahir, untuk tahun`)
                 let [nama, tgl, bln, thn, untuk] = text.split`,`
                 let anu = await primbon.ramalan_peruntungan(nama, tgl, bln, thn, untuk)
@@ -2104,7 +2104,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'weton': case 'wetonjawa': {
+            case ',weton': case ',wetonjawa': {
                 if (!q) return reply(`Example : ${prefix + command} 20, 11, 2004`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.weton_jawa(tgl, bln, thn)
@@ -2112,7 +2112,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Tanggal :* ${anu.message.tanggal}\n⭔ *Jumlah Neptu :* ${anu.message.jumlah_neptu}\n⭔ *Watak Hari :* ${anu.message.watak_hari}\n⭔ *Naga Hari :* ${anu.message.naga_hari}\n⭔ *Jam Baik :* ${anu.message.jam_baik}\n⭔ *Watak Kelahiran :* ${anu.message.watak_kelahiran}`, m)
             }
             break
-            case 'sifat': case 'karakter': {
+            case ',sifat': case ',karakter': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo, 20, 11, 2004`)
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_karakter_tanggal_lahir(nama, tgl, bln, thn)
@@ -2120,7 +2120,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Garis Hidup :* ${anu.message.garis_hidup}`, m)
             }
             break
-            case 'keberuntungan': {
+            case ',keberuntungan': {
                 if (!q) return reply(`Example : ${prefix + command} NamaCowo, 20, 11, 2004`)
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.potensi_keberuntungan(nama, tgl, bln, thn)
@@ -2128,7 +2128,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}`, m)
             }
             break
-            case 'memancing': {
+            case ',memancing': {
                 if (!q) return reply(`Example : ${prefix + command} 12, 1, 2022`)
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_memancing_ikan(tgl, bln, thn)
@@ -2136,7 +2136,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Tanggal :* ${anu.message.tgl_memancing}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'masasubur': {
+            case ',masasubur': {
                 if (!q) return reply(`Example : ${prefix + command} 12, 1, 2022, 28\n\nNote : ${prefix + command} hari pertama menstruasi, siklus`)
                 let [tgl, bln, thn, siklus] = text.split`,`
                 let anu = await primbon.masa_subur(tgl, bln, thn, siklus)
@@ -2144,7 +2144,7 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'zodiak': case 'zodiac': {
+            case ',zodiak': case ',zodiac': {
                 if (!q) return reply(`Example : ${prefix+ command} 20 11 2004`)
                 let zodiak = [
                     ["capricorn", new Date(1970, 0, 1)],
@@ -2179,14 +2179,14 @@ case 'webtonsearch': case 'webtoon':
                 chika.sendText(m.chat, `⭔ *Zodiak :* ${anu.message.zodiak}\n⭔ *Nomor :* ${anu.message.nomor_keberuntungan}\n⭔ *Aroma :* ${anu.message.aroma_keberuntungan}\n⭔ *Planet :* ${anu.message.planet_yang_mengitari}\n⭔ *Bunga :* ${anu.message.bunga_keberuntungan}\n⭔ *Warna :* ${anu.message.warna_keberuntungan}\n⭔ *Batu :* ${anu.message.batu_keberuntungan}\n⭔ *Elemen :* ${anu.message.elemen_keberuntungan}\n⭔ *Pasangan Zodiak :* ${anu.message.pasangan_zodiak}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'shio': {
+            case ',shio': {
                 if (!q) return reply(`Example : ${prefix + command} tikus\n\nNote : For Detail https://primbon.com/shio.htm`)
                 let anu = await primbon.shio(text)
                 if (anu.status == false) return reply(anu.message)
                 chika.sendText(m.chat, `⭔ *Hasil :* ${anu.message}`, m)
             }
             break
-case 'cerpen':{
+case ',cerpen':{
 if (!q) return reply('Judul cerpen yang tersedia lihat di list *CERPEN MENU*')
 reply(mess.wait)
 let cerpe = await cerpen(q)
@@ -2194,7 +2194,7 @@ var riych = await getBuffer(picak+`Cerpen ${q}`)
 await chika.send5ButImg(from, `⭔ _*Title :*_ ${cerpe.title}\n⭔ _*Author :*_ ${cerpe.author}\n⭔ _*Category :*_ ${cerpe.kategori}\n⭔ _*Pass Moderation :*_ ${cerpe.lolos}\n⭔ _*Story :*_\n${cerpe.cerita}`, `© ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}}] )
 }
 break
-case 'fajar-news':
+case ',fajar-news':
 reply(mess.wait)
 FajarNews().then(async(res) => {
 console.log(res) 
@@ -2227,7 +2227,7 @@ var res = await Darkjokes()
 teks = "*Darkjokes*"
 chika.sendMessage(m.chat, { image : { url : res }, caption: teks }, { quoted : m })
 break
-case 'cnn-news':
+case ',cnn-news':
 CNNNews().then(res => {
 no = 0
 teks = ""
@@ -2241,7 +2241,7 @@ teks += ""
 reply(teks) 
 })
 break
-case 'layarkaca-search':
+case ',layarkaca-search':
 if (!q) return m.reply('Judul') 
 reply(mess.wait)
 LayarKaca21(q).then(async(res) => {
@@ -2257,7 +2257,7 @@ teks += ``
 reply(teks) 
 })
 break
-case 'cnbc-news':
+case ',cnbc-news':
 reply(mess.wait)
 CNBCNews().then(async(res) => {
 no = 0
@@ -2273,7 +2273,7 @@ teks += ""
 chika.sendMessage(m.chat, { image : { url : res[0].berita_thumb }, caption: teks }, { quoted : m })
 })
 break
-case 'tribun-news':
+case ',tribun-news':
 reply(mess.wait)
 TribunNews().then(async(res) => {
 no = 0
@@ -2290,7 +2290,7 @@ teks += ""
 chika.sendMessage(m.chat, { image : { url : res[0].berita_thumb }, caption: teks }, { quoted : m })
 })
 break
-case 'indozone-news':
+case ',indozone-news':
 reply(mess.wait)
 IndozoneNews().then(async(res) => {
 no = 0
@@ -2307,7 +2307,7 @@ teks += ""
 chika.sendMessage(m.chat, { image : { url : res[0].berita_thumb }, caption: teks }, { quoted : m })
 })
 break
-case 'kompas-news':
+case ',kompas-news':
 reply(mess.wait)
 KompasNews().then(async(res) => {
 no = 0
@@ -2324,7 +2324,7 @@ teks += ""
 chika.sendMessage(m.chat, { image : { url : res[0].berita_thumb }, caption: teks }, { quoted : m })
 })
 break
-case 'detik-news':
+case ',detik-news':
 reply(mess.wait)
 DetikNews().then(async(res) => {
 no = 0
@@ -2340,7 +2340,7 @@ teks += ""
 chika.sendMessage(m.chat, { image : { url : res[0].berita_thumb }, caption: teks }, { quoted : m })
 })
 break
-case 'daily-news':
+case ',daily-news':
 reply(mess.wait)
 DailyNews().then(async(res) => {
 no = 0
@@ -2355,7 +2355,7 @@ teks += ""
 chika.sendMessage(m.chat, { image : { url : res[0].berita_thumb }, caption: teks }, { quoted : m })
 })
 break
-case 'inews-news':
+case ',inews-news':
 reply(mess.wait)
 iNews().then(async(res) => {
 no = 0
@@ -2372,7 +2372,7 @@ teks += ""
 reply(teks) 
 })
 break
-case 'okezone-news':
+case ',okezone-news':
 reply(mess.wait)
 OkezoneNews().then(async(res) => {
 no = 0
@@ -2388,7 +2388,7 @@ teks += ""
 chika.sendMessage(m.chat, { image : { url : res[0].berita_thumb }, caption: teks }, { quoted : m })
 })
 break
-case 'sindo-news':
+case ',sindo-news':
 reply(mess.wait)
 SindoNews().then(async(res) => {
 no = 0
@@ -2404,7 +2404,7 @@ teks += ""
 reply(teks) 
 })
 break
-case 'tempo-news':
+case ',tempo-news':
 reply(mess.wait)
 TempoNews().then(async(res) => {
 no = 0
@@ -2420,7 +2420,7 @@ teks += ""
 chika.sendMessage(m.chat, { image : { url : res[0].berita_thumb }, caption: teks }, { quoted : m })
 })
 break
-case 'antara-news':
+case ',antara-news':
 reply(mess.wait)
 AntaraNews().then(async(res) => {
 no = 0
@@ -2479,7 +2479,7 @@ teks += `Source: ${res}`
 teks += ""
 chika.sendMessage(m.chat, { image : { url : res }, caption: teks }, { quoted : m })
 break
-	    case 'stalker': case 'stalk': {
+	    case ',stalker': case ',stalk': {
 		if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply('Limit Harian Anda Telah Habis')
                 if (!text) return reply(`Example : ${prefix +command} type id\n\nList Type :\n1. ff (Free Fire)\n2. ml (Mobile Legends)\n3. aov (Arena Of Valor)\n4. cod (Call Of Duty)\n5. pb (point Blank)\n6. ig (Instagram)\n7. npm (https://npmjs.com)`)
                 let [type, id, zone] = args
@@ -2531,7 +2531,7 @@ break
                 }
             }
             break
-	        case 'tiktok': case 'tiktoknowm': {
+	        case ',tiktok': case ',tiktoknowm': {
                 if (!text) throw 'Masukkan Query Link!'
                 reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
@@ -2549,7 +2549,7 @@ break
                 chika.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'tiktokwm': case 'tiktokwatermark': {
+            case ',tiktokwm': case ',tiktokwatermark': {
                 if (!text) throw 'Masukkan Query Link!'
                 reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
@@ -2567,7 +2567,7 @@ break
                 chika.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'tiktokmp3': case 'tiktokaudio': {
+            case ',tiktokmp3': case ',tiktokaudio': {
                 if (!text) throw 'Masukkan Query Link!'
                 reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey'))
@@ -2585,7 +2585,7 @@ break
                 chika.sendMessage(m.chat, { audio: { url: anu.result.audio }, mimetype: 'audio/mpeg'}, { quoted: msg })
             }
             break
-	        case 'instagram': case 'ig': case 'igdl': {
+	        case ',instagram': case ',ig': case ',igdl': {
                 if (!text) throw 'No Query Url!'
                 reply(mess.wait)
                 if (/(?:\/p\/|\/reel\/|\/tv\/)([^\s&]+)/.test(isUrl(text)[0])) {
@@ -2598,7 +2598,7 @@ break
             }
             break
 		/** Backup misal yg atas ga keluar video **/
-		case 'igeh': case 'instagram2': case 'ig2': case 'igdl2': {
+		case ',igeh': case ',instagram2': case ',ig2': case ',igdl2': {
                 if (!text) throw 'Masukkan Query Link!'
                 reply(mess.wait)
                 
@@ -2606,7 +2606,7 @@ break
                 chika.sendMessage(m.chat, { video: { url: anu.data[0] } }, { quoted: m })
             }
             break
-            case 'joox': case 'jooxdl': {
+            case ',joox': case ',jooxdl': {
                 if (!text) throw 'No Query Title'
                 reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/downloader/joox', { query: text }, 'apikey'))
@@ -2614,7 +2614,7 @@ break
                 chika.sendMessage(m.chat, { audio: { url: anu.result.mp4aLink }, mimetype: 'audio/mpeg', fileName: anu.result.lagu+'.m4a' }, { quoted: msg })
             }
             break
-            case 'soundcloud': case 'scdl': {
+            case ',soundcloud': case ',scdl': {
                 if (!text) throw 'No Query Title'
                 reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/downloader/soundcloud', { url: isUrl(text)[0] }, 'apikey'))
@@ -2622,7 +2622,7 @@ break
                 chika.sendMessage(m.chat, { audio: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: anu.result.title+'.m4a' }, { quoted: msg })
             }
             break
-	        case 'twitdl': case 'twitter': {
+	        case ',twitdl': case ',twitter': {
                 if (!text) throw 'Masukkan Query Link!'
                 reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/api/downloader/twitter', { url: text }, 'apikey'))
@@ -2639,7 +2639,7 @@ break
                 chika.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'twittermp3': case 'twitteraudio': {
+            case ',twittermp3': case ',twitteraudio': {
                 if (!text) throw 'Masukkan Query Link!'
                 reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/api/downloader/twitter', { url: text }, 'apikey'))
@@ -2657,21 +2657,21 @@ break
                 chika.sendMessage(m.chat, { audio: { url: anu.result.audio } }, { quoted: msg })
             }
             break
-	        case 'fbdl': case 'fb': case 'facebook': {
+	        case ',fbdl': case ',fb': case ',facebook': {
                 if (!text) throw 'Masukkan Query Link!'
                 reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/api/downloader/facebook', { url: text }, 'apikey'))
                 chika.sendMessage(m.chat, { video: { url: anu.result.url }, caption: `⭔ Title : ${anu.result.title}`}, { quoted: m })
             }
             break
-	        case 'pindl': case 'pinterestdl': {
+	        case ',pindl': case ',pinterestdl': {
                 if (!text) throw 'Masukkan Query Link!'
                 reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/api/downloader/pinterestdl', { url: text }, 'apikey'))
                 chika.sendMessage(m.chat, { video: { url: anu.result }, caption: `Download From ${text}` }, { quoted: m })
             }
             break
-            case 'umma': case 'ummadl': {
+            case ',umma': case ',ummadl': {
 	        if (!q) return reply(`Example : ${prefix + command} https://umma.id/channel/video/post/gus-arafat-sumber-kecewa-84464612933698`)
                 let { umma } = require('./lib) scraper')
 		let anu = await umma(isUrl(text)[0])
@@ -2702,7 +2702,7 @@ Untuk Download Media Silahkan Klik salah satu Button dibawah ini atau masukkan c
 		}
 	    }
 	    break
-        case 'ringtone': {
+        case ',ringtone': {
 		if (!q) return reply(`Example : ${prefix + command} black rover`)
         let { ringtone } = require('./lib/scraper')
 		let anu = await ringtone(text)
@@ -2710,14 +2710,14 @@ Untuk Download Media Silahkan Klik salah satu Button dibawah ini atau masukkan c
 		chika.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
 	    }
 	    break
-		case 'iqra': {
+		case ',iqra': {
 		oh = `Example : ${prefix + command} 3\n\nIQRA Yang tersedia : 1,2,3,4,5,6`
 		if (!text) throw oh
 		yy = await getBuffer(`https://islamic-api-indonesia.herokuapp.com/api/data/pdf/iqra${text}`)
 		chika.sendMessage(m.chat, {document: yy, mimetype: 'application/pdf', fileName: `iqra${text}.pdf`}, {quoted:m}).catch ((err) => reply(oh))
 		}
 		break
-		case 'juzamma': {
+		case ',juzamma': {
 		if (args[0] === 'pdf') {
 		reply(mess.wait)
 		chika.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pdf'}, mimetype: 'application/pdf', fileName: 'juz-amma-arab-latin-indonesia.pdf'}, {quoted:m})
@@ -2737,7 +2737,7 @@ Format yang tersedia : pdf, docx, pptx, xlsx`)
 		}
 		}
 		break
-		case 'hadis': case 'hadist': {
+		case ',hadis': case ',hadist': {
 		if (!args[0]) throw `Contoh:
 ${prefix + command} bukhari 1
 ${prefix + command} abu-daud 1
@@ -2773,7 +2773,7 @@ ${id}`)
 		}
 		}
 		break
-		case 'alquran': {
+		case ',alquran': {
 		if (!args[0]) throw `Contoh penggunaan:\n${prefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
 		if (!args[1]) throw `Contoh penggunaan:\n${prefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
 		let res = await fetchJson(`https://islamic-api-indonesia.herokuapp.com/api/data/quran?surah=${args[0]}&ayat=${args[1]}`)
@@ -2786,7 +2786,7 @@ ${id}`)
 		chika.sendMessage(m.chat, {audio: { url: res.result.data.audio.primary }, mimetype: 'audio/mpeg'}, { quoted : m })
 		}
 		break
-		case 'tafsirsurah': {
+		case ',tafsirsurah': {
 		if (!args[0]) throw `Contoh penggunaan:\n${prefix + command} 1 2\n\nmaka hasilnya adalah tafsir surah Al-Fatihah ayat 2`
 		if (!args[1]) throw `Contoh penggunaan:\n${prefix + command} 1 2\n\nmaka hasilnya adalah tafsir surah Al-Fatihah ayat 2`
 		let res = await fetchJson(`https://islamic-api-indonesia.herokuapp.com/api/data/quran?surah=${args[0]}&ayat=${args[1]}`)
@@ -2800,7 +2800,7 @@ ${id}`)
 		reply(txt)
 		}
 		break
-		   case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat': case 'nightcore': case 'reverse': case 'robot': case 'slow': case 'smooth': case 'tupai':
+		   case ',bass': case ',blown': case ',deep': case ',earrape': case ',fast': case ',fat': case ',nightcore': case ',reverse': case ',robot': case ',slow': case ',smooth': case ',tupai':
                 try {
                 let set
                 if (/bass/.test(command)) set = '-af equalizer=f=54:width_type=o:width=2:g=20'
@@ -2831,7 +2831,7 @@ ${id}`)
                 reply(e)
                 }
                 break
-            case 'setcmd': {
+            case ',setcmd': {
                 if (!m.quoted) throw 'Reply Pesan!'
                 if (!m.quoted.fileSha256) throw 'SHA256 Hash Missing'
                 if (!q) return reply(`Untuk Command Apa?`)
@@ -2847,7 +2847,7 @@ ${id}`)
                 reply(`Done!`)
             }
             break
-            case 'delcmd': {
+            case ',delcmd': {
                 let hash = m.quoted.fileSha256.toString('base64')
                 if (!hash) throw `Tidak ada hash`
                 if (global.db.data.sticker[hash] && global.db.data.sticker[hash].locked) throw 'You have no permission to delete this sticker command'              
@@ -2855,7 +2855,7 @@ ${id}`)
                 reply(`Done!`)
             }
             break
-            case 'listcmd': {
+            case ',listcmd': {
                 let teks = `
 *List Hash*
 Info: *bold* hash is Locked
@@ -2864,7 +2864,7 @@ ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index +
                 chika.sendText(m.chat, teks, m, { mentions: Object.values(global.db.data.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })
             }
             break
-            case 'lockcmd': {
+            case ',lockcmd': {
                 if (!isCreator) return reply(mess.owner)
                 if (!m.quoted) throw 'Reply Pesan!'
                 if (!m.quoted.fileSha256) throw 'SHA256 Hash Missing'
@@ -2874,7 +2874,7 @@ ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index +
                 reply('Done!')
             }
             break
-            case 'addmsg': {
+            case ',addmsg': {
                 if (!m.quoted) throw 'Reply Message Yang Ingin Disave Di Database'
                 if (!q) return reply(`Example : ${prefix + command} nama file`)
                 let msgs = global.db.data.database
@@ -2887,14 +2887,14 @@ Akses dengan ${prefix}getmsg ${text}
 Lihat list Pesan Dengan ${prefix}listmsg`)
             }
             break
-            case 'getmsg': {
+            case ',getmsg': {
                 if (!q) return reply(`Example : ${prefix + command} file name\n\nLihat list pesan dengan ${prefix}listmsg`)
                 let msgs = global.db.data.database
                 if (!(text.toLowerCase() in msgs)) throw `'${text}' tidak terdaftar di list pesan`
                 chika.copyNForward(m.chat, msgs[text.toLowerCase()], true)
             }
             break
-            case 'listmsg': {
+            case ',listmsg': {
                 let msgs = JSON.parse(fs.readFileSync('./database/database.json'))
 	        let seplit = Object.entries(global.db.data.database).map(([nama, isi]) => { return { nama, ...isi } })
 		let teks = '「 LIST DATABASE 」\n\n'
@@ -2904,14 +2904,14 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 	        reply(teks)
 	    }
 	    break
-            case 'delmsg': case 'deletemsg': {
+            case ',delmsg': case ',deletemsg': {
 	        let msgs = global.db.data.database
 	        if (!(text.toLowerCase() in msgs)) return reply(`'${text}' tidak terdaftar didalam list pesan`)
 		delete msgs[text.toLowerCase()]
 		reply(`Berhasil menghapus '${text}' dari list pesan`)
             }
 	    break
-	    case 'anonymous': {
+	    case ',anonymous': {
                 if (m.isGroup) return reply('Fitur Tidak Dapat Digunakan Untuk Group!')
 				this.anonymous = this.anonymous ? this.anonymous : {}
 				let buttons = [
@@ -2920,7 +2920,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 chika.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await chika.getName(m.sender)} Welcome To Anonymous Chat\n\nKlik Button Dibawah Ini Untuk Mencari Partner\`\`\``, ownername, m)
             }
 			break
-            case 'keluar': case 'leave': {
+            case ',keluar': case ',leave': {
                 if (m.isGroup) return reply('Fitur Tidak Dapat Digunakan Untuk Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 let room = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -2937,7 +2937,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 delete this.anonymous[room.id]
                 if (command === 'leave') break
             }
-            case 'mulai': case 'start': {
+            case ',mulai': case ',start': {
                 if (m.isGroup) return reply('Fitur Tidak Dapat Digunakan Untuk Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 if (Object.values(this.anonymous).find(room => room.check(m.sender))) {
@@ -2978,7 +2978,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 }
                 break
             }
-            case 'next': case 'lanjut': {
+            case ',next': case ',lanjut': {
                 if (m.isGroup) return reply('Fitur Tidak Dapat Digunakan Untuk Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 let romeo = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -3023,19 +3023,19 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 }
                 break
             }
-            case 'public': {
+            case ',public': {
                 if (!isCreator) return reply(mess.owner)
                 chika.public = true
                 reply('Sukse Change To Public Usage')
             }
             break
-            case 'self': {
+            case ',self': {
                 if (!isCreator) return reply(mess.owner)
                 chika.public = false
                 reply('Sukses Change To Self Usage')
             }
             break
-            case 'ping': case 'botstatus': case 'statusbot': {
+            case ',ping': case ',botstatus': case ',statusbot': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
                     cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
@@ -3082,7 +3082,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 reply(respon)
             }
             break
-case 'runtime': {
+case ',runtime': {
 const templateMessage = {
 text: '*🚀 Bot Aktif Selama*',footer: `${runtime(process.uptime())}`,
 templateButtons: [
@@ -3098,7 +3098,7 @@ url: `${youtube}`
 const sendm = chika.sendMessage(from, templateMessage)
 }
 break
-case 'speed': {
+case ',speed': {
 let timestamp = speed()
 let latensi = speed() - timestamp
 const templateMessage = {
@@ -3116,7 +3116,7 @@ url: `${youtube}`
 const sendm = chika.sendMessage(from, templateMessage)
 }
 break
-case 'owner': case 'creator': {
+case ',owner': case ',creator': {
 chika.sendContact(m.chat, global.owner, m)
 const templateMessage = {
 text: 'Tuh Kak Owner Ku',footer: `© ${ownername}`,
@@ -3133,7 +3133,7 @@ url: `${youtube}`
 const sendm = chika.sendMessage(from, templateMessage)
             }
             break
-case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite':case 'yeet':case 'bully':case 'bonk':case 'wink':case 'poke':case 'nom':case 'slap':case 'smile':case 'wave':case 'awoo':case 'blush':case 'smug':case 'glomp':case 'happy':case 'dance':case 'cringe':case 'cuddle':case 'highfive':case 'handhold':
+case ',cry':case ',kill':case ',hug':case ',pat':case ',lick':case ',kiss':case ',bite':case ',yeet':case ',bully':case ',bonk':case ',wink':case ',poke':case ',nom':case ',slap':case ',smile':case ',wave':case ',awoo':case ',blush':case ',smug':case ',glomp':case ',happy':case ',dance':case ',cringe':case ',cuddle':case ',highfive':case ',handhold':
 					 if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		            db.data.users[m.sender].limit -= 1 // -1 limit
                     reply(mess.wait)
@@ -3142,7 +3142,7 @@ case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite'
 						chika.sendImageAsSticker(m.chat, data.url, m, { packname: global.packname, author: global.author })
 					})
 					break
-		case 'waifu': case 'loli': case `neko` : case `shinobu` : case `megumin` :
+		case ',waifu': case ',loli': case `neko` : case `shinobu` : case `megumin` :
 				     if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		            db.data.users[m.sender].limit -= 1 // -1 limit
 					reply(mess.wait)
@@ -3151,7 +3151,7 @@ case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite'
 					chika.sendImage(m.chat, data.url, mess.success, m)
 					})
 					break
-			case 'blowjob': case 'trap': 
+			case ',blowjob': case ',trap': 
 				     if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		            db.data.users[m.sender].limit -= 1 // -1 limit
 					reply(mess.wait)
@@ -3160,7 +3160,7 @@ case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite'
 					chika.sendImage(m.chat, data.url, mess.success, m)
 					})
 					break
-			case 'hentai':
+			case ',hentai':
 				     if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		            db.data.users[m.sender].limit -= 1 // -1 limit
 					reply(mess.wait)
@@ -3169,7 +3169,7 @@ case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite'
 					chika.sendImage(m.chat, data.url, mess.success, m)
 					})
 					break
-			case 'hneko':
+			case ',hneko':
 				     if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		            db.data.users[m.sender].limit -= 1 // -1 limit
 					reply(mess.wait)
@@ -3178,7 +3178,7 @@ case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite'
 					chika.sendImage(m.chat, data.url, mess.success, m)
 					})
 					break
-case 'playstore': {
+case ',playstore': {
             if (!q) return reply(`Example : ${prefix + command} clash of clans`)
             reply(mess.wait)
             let res = await fetchJson(api('zenz', '/webzone/playstore', { query: text }, 'apikey'))
@@ -3192,7 +3192,7 @@ case 'playstore': {
             reply(teks)
             }
             break
-            case 'gsmarena': {
+            case ',gsmarena': {
             if (!q) return reply(`Example : ${prefix + command} samsung`)
             reply(mess.wait)
             let res = await fetchJson(api('zenz', '/webzone/gsmarena', { query: text }, 'apikey'))
@@ -3214,7 +3214,7 @@ let capt = `⭔ Title: ${judul}
             chika.sendImage(m.chat, thumb, capt, m)
             }
             break
-            case 'jadwalbioskop': {
+            case ',jadwalbioskop': {
             if (!q) return reply(`Example: ${prefix + command} jakarta`)
             reply(mess.wait)
             let res = await fetchJson(api('zenz', '/webzone/jadwalbioskop', { kota: text }, 'apikey'))
@@ -3227,7 +3227,7 @@ let capt = `⭔ Title: ${judul}
             chika.sendImage(m.chat, res.result[0].thumb, capt, m)
             }
             break
-            case 'nowplayingbioskop': {
+            case ',nowplayingbioskop': {
             reply(mess.wait)
             let res = await fetchJson(api('zenz', '/webzone/nowplayingbioskop', {}, 'apikey'))
             let capt = `Now Playing Bioskop\n\n`
@@ -3239,7 +3239,7 @@ let capt = `⭔ Title: ${judul}
             chika.sendImage(m.chat, res.result[0].img, capt, m)
             }
             break
-            case 'aminio': {
+            case ',aminio': {
             if (!q) return reply(`Example: ${prefix + command} free fire`)
             reply(mess.wait)
             let res = await fetchJson(api('zenz', '/webzone/amino', { query: text }, 'apikey'))
@@ -3254,7 +3254,7 @@ let capt = `⭔ Title: ${judul}
             chika.sendImage(m.chat, 'https://'+res.result[0].community_thumb, capt, m)
             }
             break
-            case 'wattpad': {
+            case ',wattpad': {
             if (!q) return reply(`Example : ${prefix + command} love`)
             reply(mess.wait)
             let res = await fetchJson(api('zenz', '/webzone/wattpad', { query: text }, 'apikey'))
@@ -3269,7 +3269,7 @@ let capt = `⭔ Title: ${judul}
             chika.sendImage(m.chat, thumb, capt, m)
             }
             break
-            case 'webtoons': {
+            case ',webtoons': {
             if (!q) return reply(`Example : ${prefix + command} love`)
             reply(mess.wait)
             let res = await fetchJson(api('zenz', '/webzone/webtoons', { query: text }, 'apikey'))
@@ -3284,7 +3284,7 @@ let capt = `⭔ Title: ${judul}
             reply(capt)
             }
             break
-            case 'drakor': {
+            case ',drakor': {
             if (!q) return reply(`Example : ${prefix + command} love`)
             reply(mess.wait)
             let res = await fetchJson(api('zenz', '/webzone/drakor', { query: text }, 'apikey'))
@@ -3338,11 +3338,11 @@ typemenu = 'catalog'
 reply("Sucses Mengganti Menu "+q)
 }
 break
-case 'command': {
+case ',command': {
 await chika.sendListMenu(from, `Selamat ${salam} kak ${pushname}` , lang.list(pushname) , 'MENU', {quoted: fkontak})
 }
 break
-case 'menu': {
+case ',menu': {
 if(typemenu == 'image'){
 await chika.send5ButImg(from, `` + '' + lang.menu(botname, pushname, salam), `© ${ownername}`,thumb, [{"urlButton": {"displayText": "YouTubeSF","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},{"quickReplyButton": {"displayText": "List Menu","id": 'command'}}] )
 }
@@ -3354,7 +3354,7 @@ await chika.sendListMenu(from, `Selamat ${salam} kak ${pushname}` , lang.list(pu
 }
 }
 break
-case 'allmenu': {
+case ',allmenu': {
 if(typemenu == 'image'){
 var riych = await getBuffer(picak+'All Menu')
 await chika.send5ButImg(from, `` + '' + lang.allmenu(prefix, pushname, botname, time, salam), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}}] )
@@ -3367,95 +3367,95 @@ await chika.sendCatalog(from, 'ALL MENU', lang.allmenu(prefix, pushname, botname
 }
 }
 break
-case 'groupmenu':
+case ',groupmenu':
 var riych = await getBuffer(picak+'Group Menu')
 await chika.send5ButImg(from, `` + '' + lang.groupmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'downloadermenu':
+case ',downloadermenu':
 var riych = await getBuffer(picak+'Downloader Menu')
 await chika.send5ButImg(from, `` + '' + lang.downloadermenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'searchmenu':
+case ',searchmenu':
 var riych = await getBuffer(picak+'Search Menu')
 await chika.send5ButImg(from, `` + '' + lang.searchmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'telestickmenu':
+case ',telestickmenu':
 var riych = await getBuffer(picak+'Telegram Sticker Menu')
 await chika.send5ButImg(from, `` + '' + lang.telestickmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'randommenu':
+case ',randommenu':
 var riych = await getBuffer(picak+'Random Menu')
 await chika.send5ButImg(from, `` + '' + lang.randommenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'randomanimemenu':
+case ',randomanimemenu':
 var riych = await getBuffer(picak+'Random Anime Menu')
 await chika.send5ButImg(from, `` + '' + lang.randomanimemenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'searchmenu':
+case ',searchmenu':
 var riych = await getBuffer(picak+'Search Menu')
 await chika.send5ButImg(from, `` + '' + lang.searchmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'textpromenu':
+case ',textpromenu':
 var riych = await getBuffer(picak+'Textpro Menu')
 await chika.send5ButImg(from, `` + '' + lang.textpromenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'photooxymenu':
+case ',photooxymenu':
 var riych = await getBuffer(picak+'Photo Oxy Menu')
 await chika.send5ButImg(from, `` + '' + lang.photooxymenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'ephotomenu':
+case ',ephotomenu':
 var riych = await getBuffer(picak+'Ephoto Menu')
 await chika.send5ButImg(from, `` + '' + lang.ephotomenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'funmenu':
+case ',funmenu':
 var riych = await getBuffer(picak+'Fun Menu')
 await chika.send5ButImg(from, `` + '' + lang.funmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'primbonmenu':
+case ',primbonmenu':
 var riych = await getBuffer(picak+'Primbon Menu')
 await chika.send5ButImg(from, `` + '' + lang.primbonmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'cerpenmenu':
+case ',cerpenmenu':
 var riych = await getBuffer(picak+'Cerpen Menu')
 await chika.send5ButImg(from, `` + '' + lang.cerpenmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'convertmenu':
+case ',convertmenu':
 var riych = await getBuffer(picak+'Converter Menu')
 await chika.send5ButImg(from, `` + '' + lang.convertmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'informationmenu':
+case ',informationmenu':
 var riych = await getBuffer(picak+'Information Menu')
 await chika.send5ButImg(from, `` + '' + lang.informationmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'mainmenu':
+case ',mainmenu':
 var riych = await getBuffer(picak+'Main Menu')
 await chika.send5ButImg(from, `` + '' + lang.mainmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'databasemenu':
+case ',databasemenu':
 var riych = await getBuffer(picak+'Database Menu')
 await chika.send5ButImg(from, `` + '' + lang.groupmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'anonymousmenu':
+case ',anonymousmenu':
 var riych = await getBuffer(picak+'Anonymous Menu')
 await chika.send5ButImg(from, `` + '' + lang.anonymousmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'islamicmenu':
+case ',islamicmenu':
 var riych = await getBuffer(picak+'Islamic Menu')
 await chika.send5ButImg(from, `` + '' + lang.islamicmenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'voicechargermenu':
+case ',voicechargermenu':
 var riych = await getBuffer(picak+'Voice Charger Menu')
 await chika.send5ButImg(from, `` + '' + lang.voicechargermenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'ownermenu':
+case ',ownermenu':
 var riych = await getBuffer(picak+'Owner Menu')
 await chika.send5ButImg(from, `` + '' + lang.ownermenu(prefix), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'donasi': case 'donate':
+case ',donasi': case ',donate':
 var riych = await getBuffer(picak+'Donasi')
 await chika.send5ButImg(from, `` + '' + lang.donasi(ownernomer), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
-case 'thanksto': case 'tqto':
+case ',thanksto': case ',tqto':
 var riych = await getBuffer(picak+'Contributors')
 await chika.send5ButImg(from, `` + '' + lang.thanksto(), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
