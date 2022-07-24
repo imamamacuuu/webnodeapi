@@ -56,7 +56,7 @@ module.exports = chika = async (chika, m, chatUpdate, store) => {
         var budy = (typeof m.text == 'string' ? m.text : '')
         var prefix = global.prefix
         const isCmd = body.startsWith(prefix)
-        const command = body.replace(prefix).trim().split(/ +/).shift().toLowerCase()
+        const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
         const pushname = m.pushName || "No Name"
         const botNumber = await chika.decodeJid(chika.user.id)
