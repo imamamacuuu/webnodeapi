@@ -119,18 +119,6 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},trap 
   *≻* ${prefix},blowjob 
   
-  *TEXT PRO MENU*
-
-  ---=== COMING SOON ===---
-  
-  *PHOTO OXY MENU*
- 
-  ---=== COMING SOON ===---
-  
-  *EPHOTO MENU*
-  
-  ---=== COMING SOON ===---
-  
   *GAME & FUN MENU*
   *≻* ${prefix},simih
   *≻* ${prefix},bagaimanakah
@@ -195,7 +183,7 @@ return`  _Selamat ${salam} kak ${pushname}_
 
   *CERPEN MENU*
  
-  ---=== COMING SOON ===---
+  *---=== COMING SOON ===---*
   
   *CONVERT MENU*
   *≻* ${prefix},toimage
