@@ -53,6 +53,7 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},ytmp4 
   *≻* ${prefix},getmusic
   *≻* ${prefix},getvideo
+  
   *SEARCH MENU*
   *≻* ${prefix},play 
   *≻* ${prefix},yts 
@@ -61,6 +62,8 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix},ytsearch 
   *≻* ${prefix},ringtone 
   *≻* ${prefix},wallpaper
+  *≻* ${prefix},google
+  *≻* ${prefix},gimage
   
   *TELE STICK MENU*
   *≻* ${prefix},gurastick
