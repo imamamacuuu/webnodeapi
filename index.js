@@ -812,6 +812,14 @@ case ',sangecek':
       case ',cekgay':
         case ',lesbicek':
           case ',ceklesbi':
+			case ',cekcina':
+			case ',cinacek':
+			case ',cekwibu':
+			case ',wibucek':
+			case ',ceknolep':
+			case ',nolepcek':
+			case ',cekbandar':
+			case ',bandarcek':
 				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} ${pushname}`)
 					const sangeh = ['5', '10', '15','20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
 					const sange = sangeh[Math.floor(Math.random() * sangeh.length)]
