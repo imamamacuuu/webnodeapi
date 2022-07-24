@@ -1745,7 +1745,7 @@ break
                 let buttonMessage = {
 			image: { url: result },
 			caption: `*-------「 PINTEREST SEARCH 」-------*
-		🤠 *Query* : ${querry}
+		🤠 *Query* : ${text}
                 🔗 *Media Url* : ${result}`,
                     footer: ownername,
                     buttons: buttons,
