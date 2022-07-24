@@ -3342,7 +3342,7 @@ case 'command': {
 await chika.sendListMenu(from, `Selamat ${salam} kak ${pushname}` , lang.list(pushname) , 'MENU', {quoted: fkontak})
 }
 break
-case ',menu': {
+case 'oldwellmenu': {
 if(typemenu == 'image'){
 await chika.send5ButImg(from, `` + '' + lang.menu(botname, pushname, salam), `© ${ownername}`,thumb, [{"urlButton": {"displayText": "YouTubeSF","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},{"quickReplyButton": {"displayText": "List Menu","id": 'command'}}] )
 }
@@ -3354,7 +3354,7 @@ await chika.sendListMenu(from, `Selamat ${salam} kak ${pushname}` , lang.list(pu
 }
 }
 break
-case 'allmenu': {
+case ',menu': {
 if(typemenu == 'image'){
 var riych = await getBuffer(picak+'All Menu')
 await chika.send5ButImg(from, `` + '' + lang.allmenu(prefix, pushname, botname, time, salam), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "YouTube","url": `${youtube}`}},{"urlButton": {"displayText": `Instagram`,"url": `${myweb}`}},{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}}] )
