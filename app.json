@@ -2,9 +2,6 @@
   "name": "FanaNodeServer",
   "description": "NodeServer",
   "keywords": [
-    "website",
-    "Server",
-    "plugin",
     "modular",
     "productivity"
   ],
@@ -12,9 +9,6 @@
   "website": "",
   "stack": "container",
   "env": {
-    "LOGGING": {
-      "description": "ID group for logging",
-      "required": false
 
   },
   "addons": [
