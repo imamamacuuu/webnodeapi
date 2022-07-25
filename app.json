@@ -1,11 +1,28 @@
 {
-  "name": "NOtAbot",
-  "description": "NormalBot",
+  "name": "FanaNodeServer",
+  "description": "NodeServer",
   "keywords": [
-    "not",
-    "sheesh",
+    "website",
+    "Server",
     "plugin",
     "modular",
     "productivity"
   ],
-  "repository": "https://https://github.com/Hgvdwr/Fana/TitikSlebew",}
+  "repository": "https://github.com/Hgvdwr/Fana/TitikSlebew",
+  "website": "",
+  "stack": "container",
+  "env": {
+    "LOGGING": {
+      "description": "ID group for logging",
+      "required": false
+
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ]
+}
